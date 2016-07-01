@@ -1,0 +1,1 @@
+PODS_YYCATEGORIES_OTHER_LDFLAGS = -l"z" -framework "Accelerate" -framework "CoreFoundation" -framework "CoreGraphics" -framework "CoreImage" -framework "CoreText" -framework "ImageIO" -framework "QuartzCore" -framework "UIKit"

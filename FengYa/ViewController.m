@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "WriteViewController.h"
+
 #import "AppMacro.h"
 #import "UIView+Extension.h"
 #import "CustomUITableViewCell.h"
@@ -178,6 +180,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    NSDictionary *tempColorDict = _colorsArr[indexPath.row];
+    NSArray *rgbArr = [tempColorDict[@"RGB"] componentsSeparatedByString:@","];
+    
+    WriteViewController *vc = [[WriteViewController alloc] init];
+    vc.color = RGBCOLOR([rgbArr[0] doubleValue], [rgbArr[1] doubleValue], [rgbArr[2] doubleValue]);
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end
