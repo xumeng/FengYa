@@ -48,6 +48,7 @@
     text.yy_color = _color;
     
     YYTextView *textView = [YYTextView new];
+    textView.backgroundColor = [UIColor whiteColor];
     textView.attributedText = text;
     textView.size = self.view.size;
     textView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -155,17 +156,6 @@
     [self.view endEditing:YES];
     
     UIImageWriteToSavedPhotosAlbum([self imageWithView:self.textView], self, nil, nil);
-    
-//    UIGraphicsBeginImageContext(self.textView.bounds.size);
-//    
-//    [self.textView.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    
-//    UIImage *image= UIGraphicsGetImageFromCurrentImageContext();
-//    
-//    UIGraphicsEndImageContext();
-//    
-//    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
-    
 }
 
 - (UIImage *) imageWithView:(UIView *)view
