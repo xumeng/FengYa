@@ -155,7 +155,8 @@
 - (void)gotoShare {
     [self.view endEditing:YES];
     
-    UIImageWriteToSavedPhotosAlbum([self imageWithView:self.textView], self, nil, nil);
+    UIImage *snapImg = [self captureScrollView:self.textView];
+    UIImageWriteToSavedPhotosAlbum(snapImg, self, nil, nil);
 }
 
 - (UIImage *) imageWithView:(UIView *)view
@@ -169,6 +170,31 @@
     
     return img;
 }
+
+- (UIImage *)captureScrollView:(YYTextView *)textView
+{
+    UIImage* image = nil;
+    UIGraphicsBeginImageContext(textView.contentSize);
+    {
+        CGPoint savedContentOffset = textView.contentOffset;
+        CGRect savedFrame = textView.frame;
+        textView.contentOffset = CGPointZero;
+        textView.frame = CGRectMake(0, 0, textView.contentSize.width, textView.contentSize.height);
+        
+        [textView.layer renderInContext: UIGraphicsGetCurrentContext()];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        textView.contentOffset = savedContentOffset;
+        textView.frame = savedFrame;
+    }
+    UIGraphicsEndImageContext();
+    
+    if (image != nil) {
+        return image;
+    }
+    return nil;
+}
+
 
 
 @end
