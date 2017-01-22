@@ -12,4 +12,6 @@
 
 @property (nonatomic) UIColor *color;
 
+@property (nonatomic, strong) NSString *colorString;
+
 @end

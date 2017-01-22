@@ -25,6 +25,7 @@
 
 @end
 
+#define kHeaderHeight 60
 @implementation WriteViewController
 
 - (BOOL)prefersStatusBarHidden {
@@ -37,8 +38,8 @@
     if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
     [self initToolBar];
-//    [self initImageView];
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@"天净沙・秋思\n枯藤老树昏鸦，\n小桥流水人家，\n古道西风瘦马，\n夕阳西下，\n断肠人在天涯。"];
 //    text.yy_font = [UIFont fontWithName:@"Times New Roman" size:20];
@@ -46,17 +47,22 @@
     text.yy_lineSpacing = 10;
     text.yy_firstLineHeadIndent = 20;
     text.yy_color = _color;
+    text.yy_kern = @5.f;
+    
     
     YYTextView *textView = [YYTextView new];
     textView.backgroundColor = [UIColor whiteColor];
     textView.attributedText = text;
-    textView.size = self.view.size;
+    textView.origin = CGPointMake(5, kHeaderHeight+HEIGHT_OF_TOP_BAR);
+    textView.size = CGSizeMake(self.view.size.width-10, self.view.size.height-kHeaderHeight*2-HEIGHT_OF_TOP_BAR);
     textView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
     textView.delegate = self;
     textView.verticalForm = YES;
+    textView.opaque = NO;
+    ViewBorder(textView, _color, 1);
 
     textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
-    textView.contentInset = UIEdgeInsetsMake(80, 0, 0, 0);
+    textView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     textView.scrollIndicatorInsets = textView.contentInset;
     textView.selectedRange = NSMakeRange(text.length, 0);
     textView.tintColor = _color;
@@ -64,11 +70,11 @@
     [self.view sendSubviewToBack:textView];
     self.textView = textView;
     
+    [self initHeader];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [textView becomeFirstResponder];
     });
-    
-    
 
     [[YYTextKeyboardManager defaultManager] addObserver:self];
 }
@@ -98,8 +104,50 @@
     shareButton.width = buttonSize;
     shareButton.height = buttonSize;
     [self.view addSubview:shareButton];
-    
 }
+
+- (void)initHeader
+{
+    UIView *headerView = [[UIView alloc] init];
+    [_textView addSubview:headerView];
+    headerView.height = kHeaderHeight;
+    headerView.top = _textView.height - 20 - 50;
+    headerView.width = self.view.width;
+    
+    UILabel *colorLabel = [[UILabel alloc] init];
+    colorLabel.font = FONT_CC(14);
+    colorLabel.numberOfLines = 0;
+    colorLabel.text = _colorString;
+    [_textView addSubview:colorLabel];
+    [colorLabel sizeToFit];
+    colorLabel.left = 10;
+    colorLabel.width = 20;
+    colorLabel.height = 100;
+    colorLabel.bottom = headerView.bottom;
+    
+    UIView *colorView = [[UIView alloc] init];
+    colorView.backgroundColor = _color;
+    ViewRadius(colorView, 15);
+    [_textView addSubview:colorView];
+    colorView.width = 30;
+    colorView.height = 30;
+    colorView.centerY = colorLabel.centerY;
+    colorView.left = colorLabel.right + 10;
+}
+
+-(NSString *)reverseWordsInString:(NSString *)str
+{
+    id buf[str.length];
+    for (int i = 0; i < str.length; i++) {
+        buf[i] = [str substringWithRange:NSMakeRange(i, 1)];
+    }
+    NSMutableString * mstr = [[NSMutableString alloc]init];
+    for (int i = (int)str.length-1; i >= 0; i--) {
+        [mstr appendString:buf[i]];
+    }
+    return mstr;
+}
+
 
 - (void)dealloc {
     [[YYTextKeyboardManager defaultManager] removeObserver:self];
@@ -136,13 +184,13 @@
         if (CGRectGetMaxY(rect) == self.view.height) {
             CGRect textFrame = self.view.bounds;
             textFrame.size.height -= rect.size.height;
-            _textView.frame = textFrame;
+//            _textView.frame = textFrame;
             clipped = YES;
         }
     }
     
     if (!clipped) {
-        _textView.frame = self.view.bounds;
+        //_textView.frame = self.view.bounds;
     }
 }
 
@@ -154,14 +202,18 @@
 
 - (void)gotoShare {
     [self.view endEditing:YES];
-    
+
     UIImage *snapImg = [self captureScrollView:self.textView];
-    UIImageWriteToSavedPhotosAlbum(snapImg, self, nil, nil);
+    if (snapImg) {
+        UIImageWriteToSavedPhotosAlbum(snapImg, self, nil, nil);
+    } else {
+        
+    }
 }
 
-- (UIImage *) imageWithView:(UIView *)view
+- (UIImage *)imageWithView:(UIView *)view
 {
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, [[UIScreen mainScreen] scale]);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
     
     UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
@@ -174,7 +226,8 @@
 - (UIImage *)captureScrollView:(YYTextView *)textView
 {
     UIImage* image = nil;
-    UIGraphicsBeginImageContext(textView.contentSize);
+    CGFloat scale = [[UIScreen mainScreen] scale];
+    UIGraphicsBeginImageContextWithOptions(textView.contentSize, textView.opaque, scale);
     {
         CGPoint savedContentOffset = textView.contentOffset;
         CGRect savedFrame = textView.frame;
@@ -195,6 +248,12 @@
     return nil;
 }
 
+
+#pragma mark - delegate
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 
 
 @end

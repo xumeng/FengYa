@@ -185,6 +185,7 @@
     
     WriteViewController *vc = [[WriteViewController alloc] init];
     vc.color = RGBCOLOR([rgbArr[0] doubleValue], [rgbArr[1] doubleValue], [rgbArr[2] doubleValue]);
+    vc.colorString = tempColorDict[@"name"];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
