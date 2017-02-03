@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "WriteViewController.h"
+#import "SelectFontController.h"
 
 #import "AppMacro.h"
 #import "UIView+Extension.h"
@@ -20,6 +21,8 @@
 @property (nonatomic, strong) NSMutableArray *colorsArr;
 
 @end
+
+extern NSString *appFontName;
 
 @implementation ViewController
 
@@ -115,8 +118,21 @@
         cell.highlighted = NO;
     }
     cell.textLabel.text = @"风雅";
-    cell.textLabel.font = FONT_CC(40);
+    cell.textLabel.font = FONT(appFontName, 40);
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    
+    UIButton *fontButton = [[UIButton alloc] init];
+    [fontButton setTitle:@"字體" forState:UIControlStateNormal];
+    [fontButton addTarget:self action:@selector(gotoSelectFont) forControlEvents:UIControlEventTouchUpInside];
+    
+    fontButton.width = 100;
+    fontButton.height = 30;
+    fontButton.right = self.view.width - 10;
+    fontButton.top = 35;
+//    fontButton.centerY = cell.contentView.centerY;
+    fontButton.backgroundColor = UIColorRandom;
+    [cell.contentView addSubview:fontButton];
+    
     return cell;
 }
 
@@ -136,7 +152,7 @@
         
         if (indexPath.section == 0) {
             cell.textLabel.text = @"风雅";
-            cell.textLabel.font = FONT_CC(40);
+            cell.textLabel.font = FONT(appFontName, 40);
         }
         
         UIView *bgView = [[UIView alloc] initWithFrame:cell.contentView.bounds];
@@ -158,7 +174,7 @@
         textLabel = [[UILabel alloc] init];
         textLabel.tag = 998;
         textLabel.text = @"月白色";
-        textLabel.font = FONT_CC(25);
+        textLabel.font = FONT(appFontName, 25);
         [textLabel sizeToFit];
         textLabel.centerY = roundView.centerY;
         textLabel.centerX = tableView.centerX + 60;
@@ -187,6 +203,14 @@
     vc.color = RGBCOLOR([rgbArr[0] doubleValue], [rgbArr[1] doubleValue], [rgbArr[2] doubleValue]);
     vc.colorString = tempColorDict[@"name"];
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+#pragma mark - action
+- (void)gotoSelectFont
+{
+    SelectFontController *vc = [[SelectFontController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end

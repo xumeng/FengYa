@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21CF0E96B3A05EAA5E401B62 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4687B044BE0E5128AE001FC /* libPods.a */; };
+		0F083B3673140E1FF1E007F6 /* libPods-FengYa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B5AF3ACB9AABF464DE449B /* libPods-FengYa.a */; };
 		3F4526431CCB615D00480473 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4526311CCB615D00480473 /* AppDelegate.m */; };
 		3F4526441CCB615D00480473 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F4526331CCB615D00480473 /* Assets.xcassets */; };
 		3F4526451CCB615D00480473 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4526341CCB615D00480473 /* LaunchScreen.storyboard */; };
@@ -19,10 +19,13 @@
 		3F45264B1CCB615D00480473 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4526411CCB615D00480473 /* ViewController.m */; };
 		3F45264C1CCB615D00480473 /* Wenyue-GutiFangsong.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F4526421CCB615D00480473 /* Wenyue-GutiFangsong.otf */; };
 		3FA07B7F1CCBC4F700CB01EA /* WriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA07B7E1CCBC4F700CB01EA /* WriteViewController.m */; };
+		3FADCA941E349F5D001C2B6B /* TH-SiuNiu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCA921E349E3D001C2B6B /* TH-SiuNiu-Bold.ttf */; };
+		3FADCA951E349F5D001C2B6B /* TH-SiuNiu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCA931E349E3D001C2B6B /* TH-SiuNiu-Regular.ttf */; };
+		3FADCA981E34A25F001C2B6B /* SelectFontController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADCA971E34A25F001C2B6B /* SelectFontController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CB37C37AF9A5D91AAC8919B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		03B5AF3ACB9AABF464DE449B /* libPods-FengYa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FengYa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4526301CCB615D00480473 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3F4526311CCB615D00480473 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3F4526321CCB615D00480473 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
@@ -42,8 +45,13 @@
 		3F907BAC1CC3899D0024BBD6 /* FengYa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FengYa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA07B7D1CCBC4F700CB01EA /* WriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteViewController.h; sourceTree = "<group>"; };
 		3FA07B7E1CCBC4F700CB01EA /* WriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteViewController.m; sourceTree = "<group>"; };
-		5BE442DB3F593E1C16D01A80 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		F4687B044BE0E5128AE001FC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FADCA921E349E3D001C2B6B /* TH-SiuNiu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TH-SiuNiu-Bold.ttf"; sourceTree = "<group>"; };
+		3FADCA931E349E3D001C2B6B /* TH-SiuNiu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TH-SiuNiu-Regular.ttf"; sourceTree = "<group>"; };
+		3FADCA961E34A25F001C2B6B /* SelectFontController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFontController.h; sourceTree = "<group>"; };
+		3FADCA971E34A25F001C2B6B /* SelectFontController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFontController.m; sourceTree = "<group>"; };
+		3FADCA991E34A60D001C2B6B /* H-GungSeo2.2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "H-GungSeo2.2.ttf"; sourceTree = "<group>"; };
+		9A42146DFF2924F163F0BA39 /* Pods-FengYa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FengYa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FengYa/Pods-FengYa.debug.xcconfig"; sourceTree = "<group>"; };
+		E0BCD0E8B883081EEE703961 /* Pods-FengYa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FengYa.release.xcconfig"; path = "Pods/Target Support Files/Pods-FengYa/Pods-FengYa.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,13 +59,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21CF0E96B3A05EAA5E401B62 /* libPods.a in Frameworks */,
+				0F083B3673140E1FF1E007F6 /* libPods-FengYa.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06782E48E064754F4AEE1645 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03B5AF3ACB9AABF464DE449B /* libPods-FengYa.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3F45262F1CCB615D00480473 /* FengYa */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,9 +90,14 @@
 				3F45263D1CCB615D00480473 /* Vendor */,
 				3F4526401CCB615D00480473 /* ViewController.h */,
 				3F4526411CCB615D00480473 /* ViewController.m */,
+				3FADCA991E34A60D001C2B6B /* H-GungSeo2.2.ttf */,
+				3FADCA921E349E3D001C2B6B /* TH-SiuNiu-Bold.ttf */,
+				3FADCA931E349E3D001C2B6B /* TH-SiuNiu-Regular.ttf */,
 				3F4526421CCB615D00480473 /* Wenyue-GutiFangsong.otf */,
 				3FA07B7D1CCBC4F700CB01EA /* WriteViewController.h */,
 				3FA07B7E1CCBC4F700CB01EA /* WriteViewController.m */,
+				3FADCA961E34A25F001C2B6B /* SelectFontController.h */,
+				3FADCA971E34A25F001C2B6B /* SelectFontController.m */,
 			);
 			path = FengYa;
 			sourceTree = "<group>";
@@ -104,8 +125,8 @@
 			children = (
 				3F45262F1CCB615D00480473 /* FengYa */,
 				3F907BAD1CC3899D0024BBD6 /* Products */,
-				EA723591FFA38A02556F2F58 /* Pods */,
-				CB6CF3740465037FF72894CF /* Frameworks */,
+				92AB72BB07F6EE4949313096 /* Pods */,
+				06782E48E064754F4AEE1645 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,19 +138,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CB6CF3740465037FF72894CF /* Frameworks */ = {
+		92AB72BB07F6EE4949313096 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F4687B044BE0E5128AE001FC /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EA723591FFA38A02556F2F58 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5BE442DB3F593E1C16D01A80 /* Pods.debug.xcconfig */,
-				0CB37C37AF9A5D91AAC8919B /* Pods.release.xcconfig */,
+				9A42146DFF2924F163F0BA39 /* Pods-FengYa.debug.xcconfig */,
+				E0BCD0E8B883081EEE703961 /* Pods-FengYa.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -141,11 +154,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F907BC31CC3899D0024BBD6 /* Build configuration list for PBXNativeTarget "FengYa" */;
 			buildPhases = (
-				FEADDE4E9C1B1AAC010708F1 /* Check Pods Manifest.lock */,
+				00DE00B861E2D56645C03A95 /* [CP] Check Pods Manifest.lock */,
 				3F907BA81CC3899D0024BBD6 /* Sources */,
 				3F907BA91CC3899D0024BBD6 /* Frameworks */,
 				3F907BAA1CC3899D0024BBD6 /* Resources */,
-				5471A6B9E62F1FE86170C3CD /* Copy Pods Resources */,
+				38FFA944356145E13618389B /* [CP] Embed Pods Frameworks */,
+				517A93C22441B4FF97F0118F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -195,6 +209,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FADCA941E349F5D001C2B6B /* TH-SiuNiu-Bold.ttf in Resources */,
+				3FADCA951E349F5D001C2B6B /* TH-SiuNiu-Regular.ttf in Resources */,
 				3F45264C1CCB615D00480473 /* Wenyue-GutiFangsong.otf in Resources */,
 				3F4526481CCB615D00480473 /* Info.plist in Resources */,
 				3F4526461CCB615D00480473 /* colors.json in Resources */,
@@ -206,34 +222,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5471A6B9E62F1FE86170C3CD /* Copy Pods Resources */ = {
+		00DE00B861E2D56645C03A95 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FEADDE4E9C1B1AAC010708F1 /* Check Pods Manifest.lock */ = {
+		38FFA944356145E13618389B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FengYa/Pods-FengYa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		517A93C22441B4FF97F0118F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FengYa/Pods-FengYa-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -247,6 +278,7 @@
 				3F4526491CCB615D00480473 /* main.m in Sources */,
 				3F45264A1CCB615D00480473 /* UIView+Extension.m in Sources */,
 				3F4526431CCB615D00480473 /* AppDelegate.m in Sources */,
+				3FADCA981E34A25F001C2B6B /* SelectFontController.m in Sources */,
 				3FA07B7F1CCBC4F700CB01EA /* WriteViewController.m in Sources */,
 				3F45264B1CCB615D00480473 /* ViewController.m in Sources */,
 			);
@@ -350,7 +382,7 @@
 		};
 		3F907BC41CC3899D0024BBD6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BE442DB3F593E1C16D01A80 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 9A42146DFF2924F163F0BA39 /* Pods-FengYa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -365,7 +397,7 @@
 		};
 		3F907BC51CC3899D0024BBD6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CB37C37AF9A5D91AAC8919B /* Pods.release.xcconfig */;
+			baseConfigurationReference = E0BCD0E8B883081EEE703961 /* Pods-FengYa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

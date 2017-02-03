@@ -110,8 +110,6 @@ View.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green
 
 #define FONT(NAME, FONTSIZE)    [UIFont fontWithName:(NAME) size:(FONTSIZE)]
 
-#define FONT_CC(FONTSIZE) [UIFont fontWithName:@"Wyue-GutiFangsong-NC" size:(FONTSIZE)]
-
 #define FONT_XX    [UIFont systemFontOfSize:18]
 #define FONT_X    [UIFont systemFontOfSize:14]
 #define FONT_M    [UIFont systemFontOfSize:12]

@@ -1,1 +1,0 @@
-PODS_YYTEXT_OTHER_LDFLAGS = -framework "Accelerate" -framework "CoreFoundation" -framework "CoreText" -framework "MobileCoreServices" -framework "QuartzCore" -framework "UIKit"

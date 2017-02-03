@@ -18,12 +18,15 @@
 #import <YYCategories/CALayer+YYAdd.h>
 #import <YYCategories/NSData+YYAdd.h>
 #import <YYCategories/UIGestureRecognizer+YYAdd.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 
 @interface WriteViewController () <YYTextViewDelegate, YYTextKeyboardObserver>
 @property (nonatomic, assign) YYTextView *textView;
 
 @end
+
+extern NSString *appFontName;
 
 #define kHeaderHeight 60
 @implementation WriteViewController
@@ -43,7 +46,7 @@
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@"天净沙・秋思\n枯藤老树昏鸦，\n小桥流水人家，\n古道西风瘦马，\n夕阳西下，\n断肠人在天涯。"];
 //    text.yy_font = [UIFont fontWithName:@"Times New Roman" size:20];
-    text.yy_font = FONT_CC(20);
+    text.yy_font = FONT(appFontName, 20);
     text.yy_lineSpacing = 10;
     text.yy_firstLineHeadIndent = 20;
     text.yy_color = _color;
@@ -115,7 +118,7 @@
     headerView.width = self.view.width;
     
     UILabel *colorLabel = [[UILabel alloc] init];
-    colorLabel.font = FONT_CC(14);
+    colorLabel.font = FONT(appFontName, 14);
     colorLabel.numberOfLines = 0;
     colorLabel.text = _colorString;
     [_textView addSubview:colorLabel];
@@ -206,8 +209,9 @@
     UIImage *snapImg = [self captureScrollView:self.textView];
     if (snapImg) {
         UIImageWriteToSavedPhotosAlbum(snapImg, self, nil, nil);
+        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
     } else {
-        
+        [SVProgressHUD showInfoWithStatus:@"保存出了点问题"];
     }
 }
 

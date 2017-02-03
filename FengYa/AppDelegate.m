@@ -10,9 +10,13 @@
 #import "AppMacro.h"
 #import "ViewController.h"
 
+#import <SVProgressHUD/SVProgressHUD.h>
+
 @interface AppDelegate ()
 
 @end
+
+NSString *appFontName;
 
 @implementation AppDelegate
 
@@ -20,6 +24,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [self test];
+    
+    [self config];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -32,6 +39,8 @@
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            UIColorFromRGB(0x39394a), NSForegroundColorAttributeName,
                                                            SYSTEMFONT(15), NSFontAttributeName, nil]];
+    
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     
     
     
@@ -61,6 +70,24 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)config
+{
+    appFontName = @"Wyue-GutiFangsong-NC";
+}
+
+- (void)test
+{
+    for (NSString *str in [UIFont familyNames]) {
+//        if ([str hasPrefix:@"Times"]) {
+//            NSLog(@"####%@",str);
+            for (NSString *substr in [UIFont fontNamesForFamilyName:str]) {
+                NSLog(@"####%@",substr);
+            }
+//        }
+        
+    }
 }
 
 

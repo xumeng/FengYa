@@ -1,7 +1,9 @@
 platform :ios, "8.0"
-
-pod "YYText"
-pod 'YYCategories'
+target 'FengYa' do
+    pod "YYText"
+    pod 'YYCategories'
+    pod 'SVProgressHUD'
+end
 
 # target :FengYaTests, :exclusive => true do
   # pod 'Kiwi'

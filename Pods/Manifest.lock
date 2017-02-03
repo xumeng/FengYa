@@ -1,15 +1,20 @@
 PODS:
+  - SVProgressHUD (2.1.2)
   - YYCategories (1.0.2):
     - YYCategories/no-arc (= 1.0.2)
   - YYCategories/no-arc (1.0.2)
   - YYText (1.0.5)
 
 DEPENDENCIES:
+  - SVProgressHUD
   - YYCategories
   - YYText
 
 SPEC CHECKSUMS:
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   YYCategories: 7319e4ba4f4d4dbcec0094abaab540e98f04a65f
   YYText: ac09660c9ccd9b817f409a20caa6f5587444d2ae
 
-COCOAPODS: 0.37.2
+PODFILE CHECKSUM: 91f0c88a2052bae68b6d3463181ac3d00715f5ce
+
+COCOAPODS: 1.1.1

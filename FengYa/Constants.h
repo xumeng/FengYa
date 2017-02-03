@@ -9,5 +9,6 @@
 #ifndef Constants_h
 #define Constants_h
 
+static NSString *const kAppId = @"1109719657";
 
 #endif /* Constants_h */
