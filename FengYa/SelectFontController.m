@@ -10,6 +10,7 @@
 #import "AppMacro.h"
 #import "UIView+Extension.h"
 #import "CustomUITableViewCell.h"
+#import "Utils.h"
 
 @interface SelectFontController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -47,27 +48,29 @@ extern NSString *appFontName;
 }
 
 - (void)configureData {
-    //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     [self loadFontsData];
-    //    });
 }
 
 - (void)loadFontsData {
     _fontsArr = @[
+                  @"H-GungSeo",
                   @"Wyue-GutiFangsong-NC",
                   @"H-SiuNiu-Regular",
-                  @"H-SiuNiu-Bold"
+                  @"STHeitiTC-Medium",
+                  @"H-LiHei-Regular",
                   ];
 }
 
 - (void)initUI {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(gotoBack)];
+    self.title = NSLocalizedString(@"title_select_font", nil);
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back"] style:UIBarButtonItemStylePlain target:self action:@selector(gotoBack)];
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    _tableView.bounces = NO;
+    _tableView.tableFooterView = [UIView new];
     [self.view addSubview:_tableView];
     
 }
@@ -75,12 +78,10 @@ extern NSString *appFontName;
 #pragma mark - UITableView Datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@"%s", __FUNCTION__);
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%s", __FUNCTION__);
     if (!_fontsArr) {
         return 0;
     }
@@ -92,7 +93,6 @@ extern NSString *appFontName;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%s", __FUNCTION__);
     
     return [self configureFontCell:tableView cellForRowAtIndexPath:indexPath];
 }
@@ -112,6 +112,7 @@ extern NSString *appFontName;
         
         cell.textLabel.text = @"人生得意須盡歡";
         cell.textLabel.font = FONT(fontName, 40);
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
         
     }
     
@@ -123,7 +124,14 @@ extern NSString *appFontName;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    NSString *fontName = _fontsArr[indexPath.row];
+    appFontName = fontName;
+    NSDictionary *appDict = [Utils getAppConfig];
+    [appDict setValue:appFontName forKey:@"app_font_name"];
+    [Utils saveAppConfigToNSUserDefaults:appDict];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SELECTED_FONT object:nil];
+    [self gotoBack];
 }
 
 #pragma mark - action

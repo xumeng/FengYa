@@ -29,7 +29,7 @@
 			<string>wexin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxc8af2fcbb2d8657a</string>
+				<string>wx4fddc54218a7447a</string>
 			</array>
 		</dict>
 	</array>
@@ -41,9 +41,9 @@
 	<string>photoLibraryDesciption</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>H-GungSeo2.2.ttf</string>
+		<string>H-GungSeo.ttf</string>
+		<string>H-LiHei-Regular.ttf</string>
 		<string>TH-SiuNiu-Regular.ttf</string>
-		<string>TH-SiuNiu-Bold.ttf</string>
 		<string>Wenyue-GutiFangsong.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

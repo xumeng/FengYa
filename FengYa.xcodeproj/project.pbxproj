@@ -17,11 +17,23 @@
 		3F4526491CCB615D00480473 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F45263C1CCB615D00480473 /* main.m */; };
 		3F45264A1CCB615D00480473 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F45263F1CCB615D00480473 /* UIView+Extension.m */; };
 		3F45264B1CCB615D00480473 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4526411CCB615D00480473 /* ViewController.m */; };
-		3F45264C1CCB615D00480473 /* Wenyue-GutiFangsong.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F4526421CCB615D00480473 /* Wenyue-GutiFangsong.otf */; };
 		3FA07B7F1CCBC4F700CB01EA /* WriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA07B7E1CCBC4F700CB01EA /* WriteViewController.m */; };
-		3FADCA941E349F5D001C2B6B /* TH-SiuNiu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCA921E349E3D001C2B6B /* TH-SiuNiu-Bold.ttf */; };
-		3FADCA951E349F5D001C2B6B /* TH-SiuNiu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCA931E349E3D001C2B6B /* TH-SiuNiu-Regular.ttf */; };
 		3FADCA981E34A25F001C2B6B /* SelectFontController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADCA971E34A25F001C2B6B /* SelectFontController.m */; };
+		3FADCACD1E4495BE001C2B6B /* H-GungSeo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCAC91E4495BE001C2B6B /* H-GungSeo.ttf */; };
+		3FADCACE1E4495BE001C2B6B /* H-LiHei-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCACA1E4495BE001C2B6B /* H-LiHei-Regular.ttf */; };
+		3FADCACF1E4495BE001C2B6B /* TH-SiuNiu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCACB1E4495BE001C2B6B /* TH-SiuNiu-Regular.ttf */; };
+		3FADCAD01E4495BE001C2B6B /* Wenyue-GutiFangsong.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCACC1E4495BE001C2B6B /* Wenyue-GutiFangsong.otf */; };
+		3FADCAD31E4495D0001C2B6B /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADCAD21E4495D0001C2B6B /* Utils.m */; };
+		3FADCADF1E456F23001C2B6B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FADCADB1E456F23001C2B6B /* libWeChatSDK.a */; };
+		3FADCAE11E457A47001C2B6B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FADCAE01E457A47001C2B6B /* SystemConfiguration.framework */; };
+		3FADCAE31E457A70001C2B6B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FADCAE21E457A70001C2B6B /* Security.framework */; };
+		3FADCAE51E457A79001C2B6B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FADCAE41E457A79001C2B6B /* CoreTelephony.framework */; };
+		3FADCAE71E457A82001C2B6B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FADCAE61E457A82001C2B6B /* CFNetwork.framework */; };
+		3FADCAE91E457A9F001C2B6B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FADCAE81E457A9F001C2B6B /* libsqlite3.0.tbd */; };
+		3FADCAEB1E457AB1001C2B6B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FADCAEA1E457AB1001C2B6B /* libz.tbd */; };
+		3FADCAED1E457AD5001C2B6B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FADCAEC1E457AD5001C2B6B /* libc++.tbd */; };
+		3FADCAF21E458188001C2B6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCAF41E458188001C2B6B /* InfoPlist.strings */; };
+		3FADCAF81E45831E001C2B6B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCAFA1E45831E001C2B6B /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,15 +53,34 @@
 		3F45263F1CCB615D00480473 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		3F4526401CCB615D00480473 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3F4526411CCB615D00480473 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3F4526421CCB615D00480473 /* Wenyue-GutiFangsong.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wenyue-GutiFangsong.otf"; sourceTree = "<group>"; };
 		3F907BAC1CC3899D0024BBD6 /* FengYa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FengYa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA07B7D1CCBC4F700CB01EA /* WriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteViewController.h; sourceTree = "<group>"; };
 		3FA07B7E1CCBC4F700CB01EA /* WriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteViewController.m; sourceTree = "<group>"; };
-		3FADCA921E349E3D001C2B6B /* TH-SiuNiu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TH-SiuNiu-Bold.ttf"; sourceTree = "<group>"; };
-		3FADCA931E349E3D001C2B6B /* TH-SiuNiu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TH-SiuNiu-Regular.ttf"; sourceTree = "<group>"; };
 		3FADCA961E34A25F001C2B6B /* SelectFontController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFontController.h; sourceTree = "<group>"; };
 		3FADCA971E34A25F001C2B6B /* SelectFontController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFontController.m; sourceTree = "<group>"; };
-		3FADCA991E34A60D001C2B6B /* H-GungSeo2.2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "H-GungSeo2.2.ttf"; sourceTree = "<group>"; };
+		3FADCAC91E4495BE001C2B6B /* H-GungSeo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "H-GungSeo.ttf"; sourceTree = "<group>"; };
+		3FADCACA1E4495BE001C2B6B /* H-LiHei-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "H-LiHei-Regular.ttf"; sourceTree = "<group>"; };
+		3FADCACB1E4495BE001C2B6B /* TH-SiuNiu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TH-SiuNiu-Regular.ttf"; sourceTree = "<group>"; };
+		3FADCACC1E4495BE001C2B6B /* Wenyue-GutiFangsong.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wenyue-GutiFangsong.otf"; sourceTree = "<group>"; };
+		3FADCAD11E4495D0001C2B6B /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		3FADCAD21E4495D0001C2B6B /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		3FADCADB1E456F23001C2B6B /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		3FADCADC1E456F23001C2B6B /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		3FADCADD1E456F23001C2B6B /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		3FADCADE1E456F23001C2B6B /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		3FADCAE01E457A47001C2B6B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3FADCAE21E457A70001C2B6B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3FADCAE41E457A79001C2B6B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3FADCAE61E457A82001C2B6B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3FADCAE81E457A9F001C2B6B /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		3FADCAEA1E457AB1001C2B6B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		3FADCAEC1E457AD5001C2B6B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		3FADCAEE1E4580B7001C2B6B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		3FADCAEF1E4580BF001C2B6B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		3FADCAF31E458188001C2B6B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		3FADCAF51E4581E8001C2B6B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		3FADCAF91E45831E001C2B6B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		3FADCAFB1E458320001C2B6B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9A42146DFF2924F163F0BA39 /* Pods-FengYa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FengYa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FengYa/Pods-FengYa.debug.xcconfig"; sourceTree = "<group>"; };
 		E0BCD0E8B883081EEE703961 /* Pods-FengYa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FengYa.release.xcconfig"; path = "Pods/Target Support Files/Pods-FengYa/Pods-FengYa.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +90,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FADCAED1E457AD5001C2B6B /* libc++.tbd in Frameworks */,
+				3FADCAEB1E457AB1001C2B6B /* libz.tbd in Frameworks */,
+				3FADCAE91E457A9F001C2B6B /* libsqlite3.0.tbd in Frameworks */,
+				3FADCAE71E457A82001C2B6B /* CFNetwork.framework in Frameworks */,
+				3FADCAE51E457A79001C2B6B /* CoreTelephony.framework in Frameworks */,
+				3FADCAE31E457A70001C2B6B /* Security.framework in Frameworks */,
+				3FADCAE11E457A47001C2B6B /* SystemConfiguration.framework in Frameworks */,
+				3FADCADF1E456F23001C2B6B /* libWeChatSDK.a in Frameworks */,
 				0F083B3673140E1FF1E007F6 /* libPods-FengYa.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +108,13 @@
 		06782E48E064754F4AEE1645 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FADCAEC1E457AD5001C2B6B /* libc++.tbd */,
+				3FADCAEA1E457AB1001C2B6B /* libz.tbd */,
+				3FADCAE81E457A9F001C2B6B /* libsqlite3.0.tbd */,
+				3FADCAE61E457A82001C2B6B /* CFNetwork.framework */,
+				3FADCAE41E457A79001C2B6B /* CoreTelephony.framework */,
+				3FADCAE21E457A70001C2B6B /* Security.framework */,
+				3FADCAE01E457A47001C2B6B /* SystemConfiguration.framework */,
 				03B5AF3ACB9AABF464DE449B /* libPods-FengYa.a */,
 			);
 			name = Frameworks;
@@ -77,27 +123,28 @@
 		3F45262F1CCB615D00480473 /* FengYa */ = {
 			isa = PBXGroup;
 			children = (
+				3FADCAD11E4495D0001C2B6B /* Utils.h */,
+				3FADCAD21E4495D0001C2B6B /* Utils.m */,
+				3FADCAC81E4495B1001C2B6B /* Fonts */,
 				3F4526301CCB615D00480473 /* AppDelegate.h */,
 				3F4526311CCB615D00480473 /* AppDelegate.m */,
+				3F4526371CCB615D00480473 /* Constants.h */,
 				3F4526321CCB615D00480473 /* AppMacro.h */,
 				3F4526331CCB615D00480473 /* Assets.xcassets */,
 				3F4526341CCB615D00480473 /* LaunchScreen.storyboard */,
 				3F4526361CCB615D00480473 /* colors.json */,
-				3F4526371CCB615D00480473 /* Constants.h */,
 				3F4526381CCB615D00480473 /* Ext */,
 				3F45263B1CCB615D00480473 /* Info.plist */,
 				3F45263C1CCB615D00480473 /* main.m */,
 				3F45263D1CCB615D00480473 /* Vendor */,
 				3F4526401CCB615D00480473 /* ViewController.h */,
 				3F4526411CCB615D00480473 /* ViewController.m */,
-				3FADCA991E34A60D001C2B6B /* H-GungSeo2.2.ttf */,
-				3FADCA921E349E3D001C2B6B /* TH-SiuNiu-Bold.ttf */,
-				3FADCA931E349E3D001C2B6B /* TH-SiuNiu-Regular.ttf */,
-				3F4526421CCB615D00480473 /* Wenyue-GutiFangsong.otf */,
 				3FA07B7D1CCBC4F700CB01EA /* WriteViewController.h */,
 				3FA07B7E1CCBC4F700CB01EA /* WriteViewController.m */,
 				3FADCA961E34A25F001C2B6B /* SelectFontController.h */,
 				3FADCA971E34A25F001C2B6B /* SelectFontController.m */,
+				3FADCAF41E458188001C2B6B /* InfoPlist.strings */,
+				3FADCAFA1E45831E001C2B6B /* Localizable.strings */,
 			);
 			path = FengYa;
 			sourceTree = "<group>";
@@ -114,6 +161,7 @@
 		3F45263D1CCB615D00480473 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				3FADCADA1E456F23001C2B6B /* WeChatSDK */,
 				3F45263E1CCB615D00480473 /* UIView+Extension.h */,
 				3F45263F1CCB615D00480473 /* UIView+Extension.m */,
 			);
@@ -136,6 +184,28 @@
 				3F907BAC1CC3899D0024BBD6 /* FengYa.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3FADCAC81E4495B1001C2B6B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3FADCAC91E4495BE001C2B6B /* H-GungSeo.ttf */,
+				3FADCACA1E4495BE001C2B6B /* H-LiHei-Regular.ttf */,
+				3FADCACB1E4495BE001C2B6B /* TH-SiuNiu-Regular.ttf */,
+				3FADCACC1E4495BE001C2B6B /* Wenyue-GutiFangsong.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		3FADCADA1E456F23001C2B6B /* WeChatSDK */ = {
+			isa = PBXGroup;
+			children = (
+				3FADCADB1E456F23001C2B6B /* libWeChatSDK.a */,
+				3FADCADC1E456F23001C2B6B /* WechatAuthSDK.h */,
+				3FADCADD1E456F23001C2B6B /* WXApi.h */,
+				3FADCADE1E456F23001C2B6B /* WXApiObject.h */,
+			);
+			path = WeChatSDK;
 			sourceTree = "<group>";
 		};
 		92AB72BB07F6EE4949313096 /* Pods */ = {
@@ -191,7 +261,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = 3F907BA31CC3899D0024BBD6;
@@ -209,12 +278,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FADCA941E349F5D001C2B6B /* TH-SiuNiu-Bold.ttf in Resources */,
-				3FADCA951E349F5D001C2B6B /* TH-SiuNiu-Regular.ttf in Resources */,
-				3F45264C1CCB615D00480473 /* Wenyue-GutiFangsong.otf in Resources */,
 				3F4526481CCB615D00480473 /* Info.plist in Resources */,
+				3FADCACD1E4495BE001C2B6B /* H-GungSeo.ttf in Resources */,
 				3F4526461CCB615D00480473 /* colors.json in Resources */,
+				3FADCACF1E4495BE001C2B6B /* TH-SiuNiu-Regular.ttf in Resources */,
+				3FADCAD01E4495BE001C2B6B /* Wenyue-GutiFangsong.otf in Resources */,
+				3FADCAF81E45831E001C2B6B /* Localizable.strings in Resources */,
 				3F4526441CCB615D00480473 /* Assets.xcassets in Resources */,
+				3FADCACE1E4495BE001C2B6B /* H-LiHei-Regular.ttf in Resources */,
+				3FADCAF21E458188001C2B6B /* InfoPlist.strings in Resources */,
 				3F4526451CCB615D00480473 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +349,7 @@
 				3F4526471CCB615D00480473 /* CustomUITableViewCell.m in Sources */,
 				3F4526491CCB615D00480473 /* main.m in Sources */,
 				3F45264A1CCB615D00480473 /* UIView+Extension.m in Sources */,
+				3FADCAD31E4495D0001C2B6B /* Utils.m in Sources */,
 				3F4526431CCB615D00480473 /* AppDelegate.m in Sources */,
 				3FADCA981E34A25F001C2B6B /* SelectFontController.m in Sources */,
 				3FA07B7F1CCBC4F700CB01EA /* WriteViewController.m in Sources */,
@@ -291,8 +364,28 @@
 			isa = PBXVariantGroup;
 			children = (
 				3F4526351CCB615D00480473 /* Base */,
+				3FADCAEE1E4580B7001C2B6B /* zh-Hans */,
+				3FADCAEF1E4580BF001C2B6B /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3FADCAF41E458188001C2B6B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FADCAF31E458188001C2B6B /* zh-Hans */,
+				3FADCAF51E4581E8001C2B6B /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3FADCAFA1E45831E001C2B6B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FADCAF91E45831E001C2B6B /* zh-Hans */,
+				3FADCAFB1E458320001C2B6B /* zh-Hant */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -302,6 +395,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -346,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -390,6 +485,37 @@
 				DEVELOPMENT_TEAM = VTBQB83AWS;
 				INFOPLIST_FILE = FengYa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/FengYa/Vendor/WeChatSDK",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"SVProgressHUD\"",
+					"-l\"YYCategories\"",
+					"-l\"YYText\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.amonxu.fengya;
 				PRODUCT_NAME = FengYa;
 			};
@@ -405,6 +531,37 @@
 				DEVELOPMENT_TEAM = VTBQB83AWS;
 				INFOPLIST_FILE = FengYa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FengYa/Vendor/WeChatSDK",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"SVProgressHUD\"",
+					"-l\"YYCategories\"",
+					"-l\"YYText\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.amonxu.fengya;
 				PRODUCT_NAME = FengYa;
 			};

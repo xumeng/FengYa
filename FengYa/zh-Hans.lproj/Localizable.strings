@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  FengYa
+
+  Created by Amon on 2017/2/4.
+  Copyright © 2017年 GodPlace. All rights reserved.
+*/
+
+"app_name" = "风雅";
+
+"title_select_font" = "选择钟意的字体";
+
+"share_title" = "分享";
+"share_message" = "";
+"share_to_wechat" = "分享到微信";
+"share_to_wechat_timeline" = "分享到朋友圈";
+"share_to_save" = "保存相片";
+"share_to_save_success" = "已保存!";
+"share_to_save_failed" = "保存出了点问题，请检查相册权限!";
+
+"action_cancel" = "关闭";

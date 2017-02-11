@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 iPin. All rights reserved.
 //
 
+#import "Constants.h"
 #ifndef WeChatStickers_AppMacro_h
 #define WeChatStickers_AppMacro_h
 

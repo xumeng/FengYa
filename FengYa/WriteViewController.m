@@ -19,6 +19,7 @@
 #import <YYCategories/NSData+YYAdd.h>
 #import <YYCategories/UIGestureRecognizer+YYAdd.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "WXApi.h"
 
 
 @interface WriteViewController () <YYTextViewDelegate, YYTextKeyboardObserver>
@@ -203,17 +204,6 @@ extern NSString *appFontName;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)gotoShare {
-    [self.view endEditing:YES];
-
-    UIImage *snapImg = [self captureScrollView:self.textView];
-    if (snapImg) {
-        UIImageWriteToSavedPhotosAlbum(snapImg, self, nil, nil);
-        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
-    } else {
-        [SVProgressHUD showInfoWithStatus:@"保存出了点问题"];
-    }
-}
 
 - (UIImage *)imageWithView:(UIView *)view
 {
@@ -250,6 +240,56 @@ extern NSString *appFontName;
         return image;
     }
     return nil;
+}
+
+- (void)gotoShare
+{
+    [self.view endEditing:YES];
+    
+    UIImage *snapImg = [self captureScrollView:self.textView];
+    
+    UIAlertController *av = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"share_title", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:NSLocalizedString(@"share_to_wechat", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self shareToWeChat:snapImg scene:WXSceneSession];
+    }];
+    UIAlertAction *action4 = [UIAlertAction actionWithTitle:NSLocalizedString(@"share_to_wechat_timeline", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self shareToWeChat:snapImg scene:WXSceneTimeline];
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:NSLocalizedString(@"share_to_save", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (snapImg) {
+            UIImageWriteToSavedPhotosAlbum(snapImg, self, nil, nil);
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"share_to_save_success", nil)];
+        } else {
+            [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"share_to_save_failed", nil)];
+        }
+    }];
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:NSLocalizedString(@"action_cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [av addAction:action1];
+    [av addAction:action4];
+    [av addAction:action2];
+    [av addAction:action3];
+    [self presentViewController:av animated:YES completion:nil];
+}
+
+- (void)test
+{
+    
+    
+}
+
+- (void)shareToWeChat:(UIImage *)image scene:(int)scene
+{
+    WXMediaMessage *msg = [WXMediaMessage message];
+    WXImageObject *imageObj = [WXImageObject object];
+    imageObj.imageData = UIImageJPEGRepresentation(image, 0.75);
+    msg.mediaObject = imageObj;
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.message = msg;
+    req.scene = scene;
+    [WXApi sendReq:req];
 }
 
 

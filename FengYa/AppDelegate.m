@@ -8,11 +8,13 @@
 
 #import "AppDelegate.h"
 #import "AppMacro.h"
+#import "Utils.h"
 #import "ViewController.h"
 
+#import "WXApi.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <WXApiDelegate>
 
 @end
 
@@ -27,6 +29,8 @@ NSString *appFontName;
     [self test];
     
     [self config];
+    
+    [self load3Rd];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -72,22 +76,38 @@ NSString *appFontName;
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    if ([[url absoluteString] hasPrefix:@"wechat"] || [[url absoluteString] hasPrefix:@"wx"]) {
+        return [WXApi handleOpenURL:url delegate:self];
+    }
+    return NO;
+}
+
 - (void)config
 {
-    appFontName = @"Wyue-GutiFangsong-NC";
+    NSDictionary *appDict = [Utils getAppConfig];
+    if (!appDict || !appDict[@"app_font_name"]) {
+        appFontName = @"Wyue-GutiFangsong-NC";
+    } else {
+        appFontName = appDict[@"app_font_name"];
+    }
+}
+
+- (void)load3Rd
+{
+    [WXApi registerApp:kAppKeyWeChat];
 }
 
 - (void)test
 {
-    for (NSString *str in [UIFont familyNames]) {
-//        if ([str hasPrefix:@"Times"]) {
-//            NSLog(@"####%@",str);
-            for (NSString *substr in [UIFont fontNamesForFamilyName:str]) {
-                NSLog(@"####%@",substr);
-            }
+//    for (NSString *str in [UIFont familyNames]) {
+//        for (NSString *substr in [UIFont fontNamesForFamilyName:str]) {
+//            NSLog(@"####%@",substr);
 //        }
-        
-    }
+//    }
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSLog(@"##########当前应用的路径：%@",docPath);
 }
 
 
