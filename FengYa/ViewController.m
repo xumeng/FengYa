@@ -13,18 +13,32 @@
 #import "AppMacro.h"
 #import "UIView+Extension.h"
 #import "CustomUITableViewCell.h"
+#import <SafariServices/SafariServices.h>
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+#import <DCPathButton/DCPathButton.h>
+#import "CardCollectionView.h"
+
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DCPathButtonDelegate, CardCollectionViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
+@property (nonatomic, strong) CardCollectionView *cardView;
+
 @property (nonatomic, strong) NSMutableArray *colorsArr;
+
+@property NSInteger tapIndex;
 
 @end
 
 extern NSString *appFontName;
+
+typedef NS_ENUM(NSInteger, TOOLS_ACTION) {
+    TOOLS_ACTION_ABOUT = 0,
+    TOOLS_ACTION_SELECT_FONT,
+    TOOLS_ACTION_SWITCH,
+};
 
 @implementation ViewController
 
@@ -57,6 +71,7 @@ extern NSString *appFontName;
 }
 
 - (void)configureData {
+    _tapIndex = 0;
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self loadColorsData];
 //    });
@@ -73,6 +88,20 @@ extern NSString *appFontName;
 }
 
 - (void)initUI {
+    self.view.backgroundColor = UIColorFromRGB(0xefefef);
+    
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.textColor = [UIColor blackColor];
+    titleLabel.text = NSLocalizedString(@"app_name", nil);
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.font = FONT(appFontName, 40);
+    [titleLabel sizeToFit];
+    titleLabel.height = 100;
+    titleLabel.centerX = self.view.centerX;
+    [self.view addSubview:titleLabel];
+    
+    
+    //  表格视图
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -81,6 +110,7 @@ extern NSString *appFontName;
     [self.view addSubview:_tableView];
     
     
+    //  格子视图
     CGFloat itemSize = (SIZE_OF_SCREEN.width - 10*3)/2;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(itemSize, itemSize);
@@ -92,18 +122,62 @@ extern NSString *appFontName;
     _collectionView.backgroundColor = [UIColor whiteColor];
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
     [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"reusableView"];
-
     [self.view addSubview:_collectionView];
+    
+    //  卡片视图
+    _cardView = [[CardCollectionView alloc] initWithFrame:CGRectMake(40, 100, WIDTH(self.view)-40*2, HEIGHT(self.view)-200)];
+    _cardView.colorsArr = _colorsArr;
+    _cardView.delegate = self;
+    [self.view addSubview:_cardView];
+    
+    //  操作按钮
+    DCPathButton *pathButton = [[DCPathButton alloc] initWithCenterImage:[UIImage imageNamed:@"more"]
+                                                        highlightedImage:[UIImage imageNamed:@"more"]];
+    pathButton.delegate = self;
+    
+    DCPathItemButton *itemButton1 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"about"]
+                                                           highlightedImage:[UIImage imageNamed:@"about"]
+                                                            backgroundImage:[UIImage imageNamed:@"chooser-moment-button"]
+                                                 backgroundHighlightedImage:[UIImage imageNamed:@"chooser-moment-button-highlighted"]];
+    DCPathItemButton *itemButton2 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"refresh"]
+                                                          highlightedImage:[UIImage imageNamed:@"refresh"]
+                                                           backgroundImage:[UIImage imageNamed:@"chooser-moment-button"]
+                                                backgroundHighlightedImage:[UIImage imageNamed:@"chooser-moment-button-highlighted"]];
+    DCPathItemButton *itemButton3 = [[DCPathItemButton alloc]initWithImage:[UIImage imageNamed:@"aa"]
+                                                          highlightedImage:[UIImage imageNamed:@"aa"]
+                                                           backgroundImage:[UIImage imageNamed:@"chooser-moment-button"]
+                                                backgroundHighlightedImage:[UIImage imageNamed:@"chooser-moment-button-highlighted"]];
+    
+    
+    [pathButton addPathItems:@[itemButton1, itemButton3, itemButton2]];
+    pathButton.bloomRadius = 120.0f;
+    pathButton.allowSounds = YES;
+    pathButton.allowCenterButtonRotation = YES;
+    
+    pathButton.bloomDirection = kDCPathButtonBloomDirectionTopLeft;
+    pathButton.dcButtonCenter = CGPointMake(self.view.frame.size.width - 10 - pathButton.frame.size.width/2, self.view.frame.size.height - pathButton.frame.size.height/2 - 10);
+    pathButton.bottomViewColor = [UIColor blackColor];
+    [self.view addSubview:pathButton];
+    
     _tableView.hidden = YES;
-    
-    UIButton *actionButton = [[UIButton alloc] init];
-    [actionButton setTitle:@"..." forState:UIControlStateNormal];
-    [actionButton addTarget:self action:@selector(showMore) forControlEvents:UIControlEventTouchUpInside];
-    [actionButton sizeToFit];
-    [self.view addSubview:actionButton];
-    actionButton.bottom = _tableView.height - 15;
-    actionButton.right = _tableView.width - 15;
-    
+    _collectionView.hidden = YES;
+}
+
+- (void)updateShow
+{
+    [UIView animateWithDuration:.25 animations:^{
+        _collectionView.hidden = YES;
+        _tableView.hidden = YES;
+        _cardView.hidden = YES;
+    } completion:^(BOOL finished) {
+        if (_tapIndex % 3 == 0) {
+            _cardView.hidden = NO;
+        } else if (_tapIndex % 2 == 0) {
+            _collectionView.hidden = NO;
+        } else {
+            _tableView.hidden = NO;
+        }
+    }];
 }
 
 #pragma mark - UITableView Datasource
@@ -147,19 +221,6 @@ extern NSString *appFontName;
     cell.textLabel.text = NSLocalizedString(@"app_name", nil);
     cell.textLabel.font = FONT(appFontName, 40);
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    
-    UIButton *fontButton = [[UIButton alloc] init];
-    [fontButton setTitle:NSLocalizedString(@"#", nil) forState:UIControlStateNormal];
-    [fontButton addTarget:self action:@selector(gotoSelectFont) forControlEvents:UIControlEventTouchUpInside];
-    
-    fontButton.width = 100;
-    fontButton.height = 30;
-    fontButton.right = self.view.width - 10;
-    fontButton.top = 35;
-//    fontButton.centerY = cell.contentView.centerY;
-    fontButton.backgroundColor = UIColorRandom;
-    [cell.contentView addSubview:fontButton];
-    
     return cell;
 }
 
@@ -220,13 +281,7 @@ extern NSString *appFontName;
     if (indexPath.section == 0) {
         [self gotoSelectFont];
     } else {
-        NSDictionary *tempColorDict = _colorsArr[indexPath.row];
-        NSArray *rgbArr = [tempColorDict[@"RGB"] componentsSeparatedByString:@","];
-        
-        WriteViewController *vc = [[WriteViewController alloc] init];
-        vc.color = RGBCOLOR([rgbArr[0] doubleValue], [rgbArr[1] doubleValue], [rgbArr[2] doubleValue]);
-        vc.colorString = tempColorDict[@"name"];
-        [self presentViewController:vc animated:YES completion:nil];
+        [self gotoWrite:indexPath.row];
     }
 }
 
@@ -243,23 +298,35 @@ extern NSString *appFontName;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     UICollectionViewCell *cell = (UICollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
-        
-    cell.contentView.backgroundColor = UIColorRandom;
     
-    UILabel *textLabel;
-    textLabel = [[UILabel alloc] init];
-    textLabel.tag = 998;
-    textLabel.text = @"月白色";
-    textLabel.textAlignment = NSTextAlignmentCenter;
-    textLabel.font = FONT(appFontName, 25);
+    NSDictionary *tempColorDict = _colorsArr[indexPath.row];
+    
+    NSArray *rgbArr = [tempColorDict[@"RGB"] componentsSeparatedByString:@","];
+    cell.contentView.backgroundColor = RGBCOLOR([rgbArr[0] doubleValue], [rgbArr[1] doubleValue], [rgbArr[2] doubleValue]);
+    
+    UILabel *textLabel = [cell.contentView viewWithTag:998];
+    if (!textLabel) {
+        textLabel = [[UILabel alloc] init];
+        textLabel.tag = 998;
+        textLabel.textAlignment = NSTextAlignmentCenter;
+        textLabel.font = FONT(appFontName, 25);
+        textLabel.opaque = YES;
+        textLabel.text = tempColorDict[@"name"];
+        [textLabel sizeToFit];
+        [cell.contentView addSubview:textLabel];
+        textLabel.centerY = cell.contentView.centerY;
+        textLabel.centerX = cell.contentView.centerX;
+    }
+    double x = [rgbArr[0] doubleValue] + [rgbArr[1] doubleValue] + [rgbArr[2] doubleValue];
+    if (x < 150) {
+        textLabel.textColor = [UIColor whiteColor];
+    } else {
+        textLabel.textColor = [UIColor blackColor];
+    }
+    
+    textLabel.text = tempColorDict[@"name"];
     [textLabel sizeToFit];
-    textLabel.opaque = YES;
-    [cell.contentView addSubview:textLabel];
-    textLabel.centerY = cell.contentView.centerY;
-    textLabel.centerX = cell.contentView.centerX;
-    
     return cell;
 }
 
@@ -284,7 +351,7 @@ extern NSString *appFontName;
     UILabel *label = [[UILabel alloc] initWithFrame:headerView.bounds];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = NSLocalizedString(@"app_name", nil);
-    label.font = FONT(appFontName, 25);
+    label.font = FONT(appFontName, 40);
     [headerView addSubview:label];
     return headerView;
 }
@@ -293,8 +360,25 @@ extern NSString *appFontName;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"----%li",indexPath.row);
+    [self gotoWrite:indexPath.row];
 }
 
+#pragma mark DCPathButton Delegate
+- (void)pathButton:(DCPathButton *)dcPathButton clickItemButtonAtIndex:(NSUInteger)itemButtonIndex {
+    if (itemButtonIndex == TOOLS_ACTION_ABOUT) {
+        [self gotoAbout];
+    } else if (itemButtonIndex == TOOLS_ACTION_SWITCH) {
+        [self gotoSwitch];
+    } else if (itemButtonIndex == TOOLS_ACTION_SELECT_FONT) {
+        [self gotoSelectFont];
+    }
+}
+
+#pragma mark CardCollectionView Delegate
+- (void)cardCollectionView:(CardCollectionView *)cardCollectionView didTapCardWithIndex:(NSInteger)index
+{
+    [self gotoWrite:index];
+}
 
 
 #pragma mark - action
@@ -305,10 +389,29 @@ extern NSString *appFontName;
     [self presentViewController:nav animated:YES completion:nil];
 }
 
-- (void)showMore
+- (void)gotoAbout
 {
-    _tableView.hidden = !_tableView.hidden;
-    _collectionView.hidden = !_collectionView.hidden;
+    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"http://amonxu.com"]];
+    [self presentViewController:vc animated:YES completion:^{
+        
+    }];
+}
+
+- (void)gotoSwitch
+{
+    _tapIndex ++;
+    [self updateShow];
+}
+
+- (void)gotoWrite:(NSInteger)index
+{
+    NSDictionary *tempColorDict = _colorsArr[index];
+    NSArray *rgbArr = [tempColorDict[@"RGB"] componentsSeparatedByString:@","];
+    
+    WriteViewController *vc = [[WriteViewController alloc] init];
+    vc.color = RGBCOLOR([rgbArr[0] doubleValue], [rgbArr[1] doubleValue], [rgbArr[2] doubleValue]);
+    vc.colorString = tempColorDict[@"name"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - Notification

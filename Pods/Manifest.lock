@@ -1,20 +1,23 @@
 PODS:
+  - DCPathButton (2.1.4)
   - SVProgressHUD (2.1.2)
-  - YYCategories (1.0.2):
-    - YYCategories/no-arc (= 1.0.2)
-  - YYCategories/no-arc (1.0.2)
-  - YYText (1.0.5)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
+  - DCPathButton
   - SVProgressHUD
   - YYCategories
   - YYText
 
 SPEC CHECKSUMS:
+  DCPathButton: 99c8211ef3eafc3b438c917a4c7b4502fa77eee7
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
-  YYCategories: 7319e4ba4f4d4dbcec0094abaab540e98f04a65f
-  YYText: ac09660c9ccd9b817f409a20caa6f5587444d2ae
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 91f0c88a2052bae68b6d3463181ac3d00715f5ce
+PODFILE CHECKSUM: df2a36bb3237de9dc5e85cb5c4127f8eebab2474
 
 COCOAPODS: 1.1.1

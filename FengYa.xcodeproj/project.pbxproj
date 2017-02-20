@@ -17,6 +17,9 @@
 		3F4526491CCB615D00480473 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F45263C1CCB615D00480473 /* main.m */; };
 		3F45264A1CCB615D00480473 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F45263F1CCB615D00480473 /* UIView+Extension.m */; };
 		3F45264B1CCB615D00480473 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4526411CCB615D00480473 /* ViewController.m */; };
+		3F8E10311E56EAFA00931AD0 /* CardCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E102C1E56EAFA00931AD0 /* CardCollectionView.m */; };
+		3F8E10321E56EAFA00931AD0 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E102E1E56EAFA00931AD0 /* CardView.m */; };
+		3F8E10331E56EAFA00931AD0 /* OverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E10301E56EAFA00931AD0 /* OverView.m */; };
 		3FA07B7F1CCBC4F700CB01EA /* WriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA07B7E1CCBC4F700CB01EA /* WriteViewController.m */; };
 		3FADCA981E34A25F001C2B6B /* SelectFontController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADCA971E34A25F001C2B6B /* SelectFontController.m */; };
 		3FADCACD1E4495BE001C2B6B /* H-GungSeo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCAC91E4495BE001C2B6B /* H-GungSeo.ttf */; };
@@ -53,6 +56,12 @@
 		3F45263F1CCB615D00480473 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		3F4526401CCB615D00480473 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3F4526411CCB615D00480473 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3F8E102B1E56EAFA00931AD0 /* CardCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCollectionView.h; sourceTree = "<group>"; };
+		3F8E102C1E56EAFA00931AD0 /* CardCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCollectionView.m; sourceTree = "<group>"; };
+		3F8E102D1E56EAFA00931AD0 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
+		3F8E102E1E56EAFA00931AD0 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
+		3F8E102F1E56EAFA00931AD0 /* OverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverView.h; sourceTree = "<group>"; };
+		3F8E10301E56EAFA00931AD0 /* OverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverView.m; sourceTree = "<group>"; };
 		3F907BAC1CC3899D0024BBD6 /* FengYa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FengYa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA07B7D1CCBC4F700CB01EA /* WriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteViewController.h; sourceTree = "<group>"; };
 		3FA07B7E1CCBC4F700CB01EA /* WriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteViewController.m; sourceTree = "<group>"; };
@@ -161,11 +170,26 @@
 		3F45263D1CCB615D00480473 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				3F8E102A1E56EAFA00931AD0 /* Card */,
 				3FADCADA1E456F23001C2B6B /* WeChatSDK */,
 				3F45263E1CCB615D00480473 /* UIView+Extension.h */,
 				3F45263F1CCB615D00480473 /* UIView+Extension.m */,
 			);
 			path = Vendor;
+			sourceTree = "<group>";
+		};
+		3F8E102A1E56EAFA00931AD0 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				3F8E102B1E56EAFA00931AD0 /* CardCollectionView.h */,
+				3F8E102C1E56EAFA00931AD0 /* CardCollectionView.m */,
+				3F8E102D1E56EAFA00931AD0 /* CardView.h */,
+				3F8E102E1E56EAFA00931AD0 /* CardView.m */,
+				3F8E102F1E56EAFA00931AD0 /* OverView.h */,
+				3F8E10301E56EAFA00931AD0 /* OverView.m */,
+			);
+			name = Card;
+			path = "../../../../../../../Downloads/CardAnimationDemo-master/CardAnimationDemo/Card";
 			sourceTree = "<group>";
 		};
 		3F907BA31CC3899D0024BBD6 = {
@@ -346,7 +370,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F8E10311E56EAFA00931AD0 /* CardCollectionView.m in Sources */,
 				3F4526471CCB615D00480473 /* CustomUITableViewCell.m in Sources */,
+				3F8E10321E56EAFA00931AD0 /* CardView.m in Sources */,
+				3F8E10331E56EAFA00931AD0 /* OverView.m in Sources */,
 				3F4526491CCB615D00480473 /* main.m in Sources */,
 				3F45264A1CCB615D00480473 /* UIView+Extension.m in Sources */,
 				3FADCAD31E4495D0001C2B6B /* Utils.m in Sources */,
