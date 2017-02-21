@@ -19,3 +19,11 @@
 "share_to_save_failed" = "保存出了点问题，请检查相册权限!";
 
 "action_cancel" = "关闭";
+
+
+"user_my_fav" = "喜色";
+"user_feedback" = "反馈";
+"user_appstore_comment" = "评论";
+"user_share" =  "分享";
+"user_about" = "更多关于我良辰";
+"about_title" = "关于";

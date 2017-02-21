@@ -9,11 +9,11 @@
 #import "ViewController.h"
 #import "WriteViewController.h"
 #import "SelectFontController.h"
+#import "UserViewController.h"
 
 #import "AppMacro.h"
 #import "UIView+Extension.h"
 #import "CustomUITableViewCell.h"
-#import <SafariServices/SafariServices.h>
 
 #import <DCPathButton/DCPathButton.h>
 #import "CardCollectionView.h"
@@ -391,10 +391,9 @@ typedef NS_ENUM(NSInteger, TOOLS_ACTION) {
 
 - (void)gotoAbout
 {
-    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"http://amonxu.com"]];
-    [self presentViewController:vc animated:YES completion:^{
-        
-    }];
+    UserViewController *vc = [[UserViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)gotoSwitch

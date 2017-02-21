@@ -20,6 +20,7 @@
 		3F8E10311E56EAFA00931AD0 /* CardCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E102C1E56EAFA00931AD0 /* CardCollectionView.m */; };
 		3F8E10321E56EAFA00931AD0 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E102E1E56EAFA00931AD0 /* CardView.m */; };
 		3F8E10331E56EAFA00931AD0 /* OverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E10301E56EAFA00931AD0 /* OverView.m */; };
+		3F95C00D1E5AF345006C246D /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F95C00C1E5AF345006C246D /* UserViewController.m */; };
 		3FA07B7F1CCBC4F700CB01EA /* WriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA07B7E1CCBC4F700CB01EA /* WriteViewController.m */; };
 		3FADCA981E34A25F001C2B6B /* SelectFontController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADCA971E34A25F001C2B6B /* SelectFontController.m */; };
 		3FADCACD1E4495BE001C2B6B /* H-GungSeo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FADCAC91E4495BE001C2B6B /* H-GungSeo.ttf */; };
@@ -63,6 +64,8 @@
 		3F8E102F1E56EAFA00931AD0 /* OverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverView.h; sourceTree = "<group>"; };
 		3F8E10301E56EAFA00931AD0 /* OverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverView.m; sourceTree = "<group>"; };
 		3F907BAC1CC3899D0024BBD6 /* FengYa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FengYa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F95C00B1E5AF345006C246D /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		3F95C00C1E5AF345006C246D /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		3FA07B7D1CCBC4F700CB01EA /* WriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteViewController.h; sourceTree = "<group>"; };
 		3FA07B7E1CCBC4F700CB01EA /* WriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteViewController.m; sourceTree = "<group>"; };
 		3FADCA961E34A25F001C2B6B /* SelectFontController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFontController.h; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				3FA07B7E1CCBC4F700CB01EA /* WriteViewController.m */,
 				3FADCA961E34A25F001C2B6B /* SelectFontController.h */,
 				3FADCA971E34A25F001C2B6B /* SelectFontController.m */,
+				3F95C00B1E5AF345006C246D /* UserViewController.h */,
+				3F95C00C1E5AF345006C246D /* UserViewController.m */,
 				3FADCAF41E458188001C2B6B /* InfoPlist.strings */,
 				3FADCAFA1E45831E001C2B6B /* Localizable.strings */,
 			);
@@ -379,6 +384,7 @@
 				3FADCAD31E4495D0001C2B6B /* Utils.m in Sources */,
 				3F4526431CCB615D00480473 /* AppDelegate.m in Sources */,
 				3FADCA981E34A25F001C2B6B /* SelectFontController.m in Sources */,
+				3F95C00D1E5AF345006C246D /* UserViewController.m in Sources */,
 				3FA07B7F1CCBC4F700CB01EA /* WriteViewController.m in Sources */,
 				3F45264B1CCB615D00480473 /* ViewController.m in Sources */,
 			);
