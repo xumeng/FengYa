@@ -44,11 +44,6 @@ extern NSString *appFontName;
     [super viewDidLoad];
 
     [self initUI];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleSelectedFont)
-                                                 name:NOTIFICATION_SELECTED_FONT
-                                               object:nil];
 }
 
 - (void)initUI {
@@ -136,9 +131,9 @@ extern NSString *appFontName;
     NSString *imageName;
     
     if (indexPath.section == 0) {
-        imageName = @"fav";
-        title = NSLocalizedString(@"user_my_fav", nil);
-    } else if (indexPath.section == 1) {
+//        imageName = @"fav";
+//        title = NSLocalizedString(@"user_my_fav", nil);
+//    } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             imageName = @"message";
             title = NSLocalizedString(@"user_feedback", nil);
@@ -168,8 +163,8 @@ extern NSString *appFontName;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
-        [self gotoShowFav];
-    } else if (indexPath.section == 1) {
+//        [self gotoShowFav];
+//    } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             [self gotoFeedback];
         } else if (indexPath.row == 1) {
