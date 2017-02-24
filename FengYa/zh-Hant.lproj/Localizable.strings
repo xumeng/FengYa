@@ -19,3 +19,18 @@
 "share_to_save_failed" = "儲存出了点问题，请检查相册权限!";
 
 "action_cancel" = "關閉";
+
+
+
+"user_my_fav" = "喜色";
+"user_feedback" = "回報問題";
+"user_appstore_comment" = "賞個好評";
+"user_share" =  "分享";
+"user_about" = "關於";
+"user_title" = "一般";
+
+"feedback_subject" = "「風雅」回報問題";
+"feedback_body" = "謹啟,\n  ";
+
+"share_title" = "这个应用很 cool";
+"share_msg" = "下载地址:http://amonxu.com";

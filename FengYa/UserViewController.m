@@ -12,6 +12,8 @@
 
 #import <SafariServices/SafariServices.h>
 
+#import "WXApi.h"
+
 #define kGKHeaderHeight 135.f
 #define kGKHeaderVisibleThreshold 44.f
 #define kGKNavbarHeight 64.f
@@ -99,13 +101,13 @@ extern NSString *appFontName;
 #pragma mark - UITableView Datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 1;
-    } else if (section == 1) {
+//        return 1;
+//    } else if (section == 1) {
         return 3;
     } else {
         return 1;
@@ -207,6 +209,13 @@ extern NSString *appFontName;
 
 - (void)gotoShare {
     
+    WXMediaMessage *msg = [WXMediaMessage message];
+    msg.title = NSLocalizedString(@"share_title", nil);
+    msg.description = NSLocalizedString(@"share_msg", nil);
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.message = msg;
+    req.scene = WXSceneSession;
+    [WXApi sendReq:req];
 }
 
 - (void)gotoContactMe {

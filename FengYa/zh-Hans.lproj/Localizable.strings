@@ -22,8 +22,14 @@
 
 
 "user_my_fav" = "喜色";
-"user_feedback" = "反馈";
-"user_appstore_comment" = "评论";
+"user_feedback" = "反馈问题";
+"user_appstore_comment" = "赐个好评";
 "user_share" =  "分享";
-"user_about" = "更多关于我良辰";
-"about_title" = "关于";
+"user_about" = "关于";
+"user_title" = "通用";
+
+"feedback_subject" = "「风雅」反馈问题";
+"feedback_body" = "  ";
+
+"share_title" = "这个应用很 cool";
+"share_msg" = "下载地址:http://amonxu.com";
