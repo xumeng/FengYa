@@ -58,6 +58,7 @@ extern NSString *appFontName;
                   @"H-SiuNiu-Regular",
                   @"STHeitiTC-Medium",
                   @"H-LiHei-Regular",
+                  @"PingFangTC-Thin"
                   ];
 }
 
