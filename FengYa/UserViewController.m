@@ -248,7 +248,7 @@ extern NSString *appFontName;
 }
 
 - (void)gotoContactMe {
-    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"http://amonxu.com"]];
+    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"http://amonxu.com/2017/02/25/FengYa"]];
     [self presentViewController:vc animated:YES completion:^{
         
     }];
