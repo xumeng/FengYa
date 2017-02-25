@@ -14,12 +14,22 @@
 #import "YYTextWeakProxy.h"
 #import "YYTextUtilities.h"
 #import "NSAttributedString+YYText.h"
+
+#if __has_include("YYDispatchQueuePool.h")
+#import "YYDispatchQueuePool.h"
+#else
 #import <libkern/OSAtomic.h>
+#endif
 
-
+#ifdef YYDispatchQueuePool_h
+static dispatch_queue_t YYLabelGetReleaseQueue() {
+    return YYDispatchQueueGetForQOS(NSQualityOfServiceUtility);
+}
+#else
 static dispatch_queue_t YYLabelGetReleaseQueue() {
     return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
 }
+#endif
 
 
 #define kLongPressMinimumDuration 0.5 // Time in seconds the fingers must be held down for long press gesture.
@@ -390,7 +400,6 @@ static dispatch_queue_t YYLabelGetReleaseQueue() {
     _textColor = [UIColor blackColor];
     _textVerticalAlignment = YYTextVerticalAlignmentCenter;
     _numberOfLines = 1;
-    _textAlignment = NSTextAlignmentNatural;
     _lineBreakMode = NSLineBreakByTruncatingTail;
     _innerText = [NSMutableAttributedString new];
     _innerContainer = [YYTextContainer new];
@@ -1156,7 +1165,7 @@ static dispatch_queue_t YYLabelGetReleaseQueue() {
         }
         [layer removeAnimationForKey:@"contents"];
         
-        __strong YYLabel *view = (YYLabel *)layer.delegate;
+        YYLabel *view = layer.delegate;
         if (!view) return;
         if (view->_state.layoutNeedUpdate && layoutUpdated) {
             view->_innerLayout = layout;
@@ -1237,7 +1246,7 @@ static dispatch_queue_t YYLabelGetReleaseQueue() {
     } else if ([fontName.lowercaseString isEqualToString:@"system bold"]) {
         font = [UIFont boldSystemFontOfSize:font.pointSize];
     } else {
-        if ([self fontIsBold_:font] && ([fontName.lowercaseString rangeOfString:@"bold"].location == NSNotFound)) {
+        if ([self fontIsBold_:font] && ![fontName.lowercaseString containsString:@"bold"]) {
             font = [UIFont fontWithName:fontName size:font.pointSize];
             font = [self boldFont_:font];
         } else {

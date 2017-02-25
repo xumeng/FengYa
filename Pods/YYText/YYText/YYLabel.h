@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGFloat shadowBlurRadius;
 
 /**
- The technique to use for aligning the text. Default is NSTextAlignmentNatural.
+ The technique to use for aligning the text. Default is NSLeftTextAlignment.
  Set a new value to this property also causes the new alignment to be applied to the entire `attributedText`.
  Get the value returns the alignment at the head of `attributedText`.
  */
@@ -365,8 +365,6 @@ IB_DESIGNABLE
 @property (nonatomic) UIEdgeInsets textContainerInset;
 @property (nullable, nonatomic, copy) id<YYTextLinePositionModifier> linePositionModifier;
 @property (nonnull, nonatomic, copy) YYTextDebugOption *debugOption;
-@property (nullable, nonatomic, copy) YYTextAction textTapAction;
-@property (nullable, nonatomic, copy) YYTextAction textLongPressAction;
 @property (nullable, nonatomic, copy) YYTextAction highlightTapAction;
 @property (nullable, nonatomic, copy) YYTextAction highlightLongPressAction;
 @property (nonatomic) BOOL displaysAsynchronously;

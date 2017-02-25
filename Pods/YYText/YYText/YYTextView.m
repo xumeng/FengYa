@@ -254,9 +254,8 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
             [text yy_setAttribute:key value:value range:NSMakeRange(_innerText.length, 1)];
         }];
     }
-    [self willChangeValueForKey:@"textLayout"];
+    
     _innerLayout = [YYTextLayout layoutWithContainer:_innerContainer text:text];
-    [self didChangeValueForKey:@"textLayout"];
     CGSize size = [_innerLayout textBoundingSize];
     CGSize visibleSize = [self _getVisibleSize];
     if (_innerContainer.isVerticalForm) {
@@ -1073,7 +1072,7 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
         }
     }
     
-    if (!range || range.asRange.length == 0) {
+    if (range.asRange.length == 0) {
         range = [_innerLayout textRangeByExtendingPosition:position inDirection:UITextLayoutDirectionRight offset:1];
         range = [self _correctedTextRange:range];
         if (range.asRange.length == 0) {
@@ -1795,7 +1794,7 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
         NSString *canonical = [NSLocale canonicalLocaleIdentifierFromString:preferred];
         if (canonical.length == 0) canonical = @"en";
         strings = dic[canonical];
-        if (!strings  && ([canonical rangeOfString:@"_"].location != NSNotFound)) {
+        if (!strings  && [canonical containsString:@"_"]) {
             NSString *prefix = [canonical componentsSeparatedByString:@"_"].firstObject;
             if (prefix.length) strings = dic[prefix];
         }
@@ -1971,7 +1970,6 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
     _selectable = YES;
     _highlightable = YES;
     _allowsCopyAttributedString = YES;
-    _textAlignment = NSTextAlignmentNatural;
     
     _innerText = [NSMutableAttributedString new];
     _innerContainer = [YYTextContainer new];
@@ -2364,7 +2362,6 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
             _placeholderAttributedText = atr;
         }
     }
-    _placeholderText = [_placeholderAttributedText yy_plainTextForRange:NSMakeRange(0, _placeholderAttributedText.length)];
     [self _commitPlaceholderUpdate];
 }
 
@@ -3719,7 +3716,7 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
     } else if ([fontName.lowercaseString isEqualToString:@"system bold"]) {
         font = [UIFont boldSystemFontOfSize:font.pointSize];
     } else {
-        if ([self fontIsBold_:font] && ([fontName.lowercaseString rangeOfString:@"bold"].location == NSNotFound)) {
+        if ([self fontIsBold_:font] && ![fontName.lowercaseString containsString:@"bold"]) {
             font = [UIFont fontWithName:fontName size:font.pointSize];
             font = [self boldFont_:font];
         } else {
@@ -3759,7 +3756,7 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
     } else if ([fontName.lowercaseString isEqualToString:@"system bold"]) {
         font = [UIFont boldSystemFontOfSize:font.pointSize];
     } else {
-        if ([self fontIsBold_:font] && ([fontName.lowercaseString rangeOfString:@"bold"].location == NSNotFound)) {
+        if ([self fontIsBold_:font] && ![fontName.lowercaseString containsString:@"bold"]) {
             font = [UIFont fontWithName:fontName size:font.pointSize];
             font = [self boldFont_:font];
         } else {
