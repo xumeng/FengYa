@@ -20,6 +20,8 @@
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DCPathButtonDelegate, CardCollectionViewDelegate>
 
+@property (nonatomic, strong) UILabel *titleLabel;
+
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -90,15 +92,15 @@ typedef NS_ENUM(NSInteger, TOOLS_ACTION) {
 - (void)initUI {
     self.view.backgroundColor = UIColorFromRGB(0xefefef);
     
-    UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.textColor = [UIColor blackColor];
-    titleLabel.text = NSLocalizedString(@"app_name", nil);
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.font = FONT(appFontName, 40);
-    [titleLabel sizeToFit];
-    titleLabel.height = 100;
-    titleLabel.centerX = self.view.centerX;
-    [self.view addSubview:titleLabel];
+    _titleLabel = [[UILabel alloc] init];
+    _titleLabel.textColor = [UIColor blackColor];
+    _titleLabel.text = NSLocalizedString(@"app_name", nil);
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
+    _titleLabel.font = FONT(appFontName, 40);
+    [_titleLabel sizeToFit];
+    _titleLabel.height = 100;
+    _titleLabel.centerX = self.view.centerX;
+    [self.view addSubview:_titleLabel];
     
     
     //  表格视图
@@ -348,18 +350,21 @@ typedef NS_ENUM(NSInteger, TOOLS_ACTION) {
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"reusableView" forIndexPath:indexPath];
-    UILabel *label = [[UILabel alloc] initWithFrame:headerView.bounds];
-    label.textAlignment = NSTextAlignmentCenter;
+    UILabel *label = [headerView viewWithTag:888];
+    if (!label) {
+        label = [[UILabel alloc] initWithFrame:headerView.bounds];
+        label.textAlignment = NSTextAlignmentCenter;
+        [headerView addSubview:label];
+        label.tag = 888;
+    }
     label.text = NSLocalizedString(@"app_name", nil);
     label.font = FONT(appFontName, 40);
-    [headerView addSubview:label];
     return headerView;
 }
 
 //点击item方法
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"----%li",indexPath.row);
     [self gotoWrite:indexPath.row];
 }
 
@@ -417,6 +422,9 @@ typedef NS_ENUM(NSInteger, TOOLS_ACTION) {
 - (void)handleSelectedFont
 {
     [_tableView reloadData];
+    [_collectionView reloadData];
+    [_cardView reloadData];
+    _titleLabel.font = FONT(appFontName, 40);
 }
 
 @end

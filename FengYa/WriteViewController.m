@@ -45,8 +45,9 @@ extern NSString *appFontName;
     
     [self initToolBar];
     
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@"天净沙・秋思\n枯藤老树昏鸦，\n小桥流水人家，\n古道西风瘦马，\n夕阳西下，\n断肠人在天涯。"];
-//    text.yy_font = [UIFont fontWithName:@"Times New Roman" size:20];
+    NSString *textString = @"天净沙・秋思\n枯藤老树昏鸦，\n小桥流水人家，\n古道西风瘦马，\n夕阳西下，\n断肠人在天涯。";
+//    textString = @"天";
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:textString];
     text.yy_font = FONT(appFontName, 20);
     text.yy_lineSpacing = 10;
     text.yy_firstLineHeadIndent = 20;
@@ -248,7 +249,7 @@ extern NSString *appFontName;
     
     UIImage *snapImg = [self captureScrollView:self.textView];
     
-    UIAlertController *av = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"share_title", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *av = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"share_write_title", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:NSLocalizedString(@"share_to_wechat", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self shareToWeChat:snapImg scene:WXSceneSession];
     }];

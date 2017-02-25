@@ -5,3 +5,31 @@
   Created by Amon on 2017/2/3.
   Copyright © 2017年 GodPlace. All rights reserved.
 */
+
+"app_name" = "風雅";
+
+"title_select_font" = "Select favortite font";
+
+"share_write_title" = "Share to friends";
+"share_to_wechat" = "Share to Chat";
+"share_to_wechat_timeline" = "Share on Moments";
+"share_to_wechat_fav" = "Favorites";
+"share_to_save" = "Save image";
+"share_to_save_success" = "Saved to album";
+"share_to_save_failed" = "Save failed";
+
+"action_cancel" = "Cancel";
+
+
+"user_my_fav" = "Favorites";
+"user_feedback" = "Feedback";
+"user_appstore_comment" = "Rate FengYa";
+"user_share" =  "Share";
+"user_about" = "About";
+"user_title" = "General";
+
+"feedback_subject" = "「FengYa」feedback";
+"feedback_body" = "  ";
+
+"share_title" = "風雅 - Enjoy Writing use Chinese classsic colors By Meng Xu";
+"share_msg" = "https://itunes.apple.com/cn/app/feng-ya/id1109719657";

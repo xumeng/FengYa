@@ -69,7 +69,7 @@ extern NSString *appFontName;
     [self.view addSubview:_tableView];
     _tableView.contentInset = UIEdgeInsetsMake(HEIGHT_OF_TOP_BAR, 0, 0, 0);
     
-    UIImage *logoImg = [UIImage imageNamed:@"focus"];
+    UIImage *logoImg = [UIImage imageNamed:@"icon"];
     _logoView = [[UIImageView alloc] init];
     _logoView.image = logoImg;
     ViewRadius(_logoView, logoImg.size.width/2);
@@ -203,18 +203,47 @@ extern NSString *appFontName;
 }
 
 - (void)gotoAppStoreComment {
-    NSString *url = @"itms-apps://itunes.apple.com/app/id1100617666";
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kAppStoreURL]];
 }
 
 - (void)gotoShare {
+    UIAlertController *av = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"share_write_title", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:NSLocalizedString(@"share_to_wechat", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self shareToWeChat:WXSceneSession];
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:NSLocalizedString(@"share_to_wechat_timeline", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self shareToWeChat:WXSceneTimeline];
+    }];
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:NSLocalizedString(@"share_to_wechat_fav", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self shareToWeChat:WXSceneFavorite];
+    }];
+    UIAlertAction *action4 = [UIAlertAction actionWithTitle:NSLocalizedString(@"action_cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [av addAction:action1];
+    [av addAction:action2];
+    [av addAction:action3];
+    [av addAction:action4];
+    [self presentViewController:av animated:YES completion:nil];
+}
+
+- (void)shareToWeChat:(int)wxScene
+{
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = NSLocalizedString(@"share_title", nil);
+    message.description = NSLocalizedString(@"share_msg", nil);
+    UIImage *thumbImage = [UIImage imageNamed:@"icon"];
     
-    WXMediaMessage *msg = [WXMediaMessage message];
-    msg.title = NSLocalizedString(@"share_title", nil);
-    msg.description = NSLocalizedString(@"share_msg", nil);
+    [message setThumbImage:thumbImage];
+    
+    WXWebpageObject *ext = [WXWebpageObject object];
+    ext.webpageUrl = kShareURL;
+    message.mediaObject = ext;
+    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
+    
     SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
-    req.message = msg;
-    req.scene = WXSceneSession;
+    req.message = message;
+    req.scene = wxScene;
     [WXApi sendReq:req];
 }
 

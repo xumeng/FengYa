@@ -42,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		03B5AF3ACB9AABF464DE449B /* libPods-FengYa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FengYa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F223B491E6178DC004B40E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3F223B4A1E6178F2004B40E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F4526301CCB615D00480473 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3F4526311CCB615D00480473 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3F4526321CCB615D00480473 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 			children = (
 				3FADCAF31E458188001C2B6B /* zh-Hans */,
 				3FADCAF51E4581E8001C2B6B /* zh-Hant */,
+				3F223B491E6178DC004B40E5 /* Base */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			children = (
 				3FADCAF91E45831E001C2B6B /* zh-Hans */,
 				3FADCAFB1E458320001C2B6B /* zh-Hant */,
+				3F223B4A1E6178F2004B40E5 /* Base */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

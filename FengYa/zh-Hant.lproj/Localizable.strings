@@ -10,16 +10,15 @@
 
 "title_select_font" = "鍾意字體之選擇";
 
-"share_title" = "分享";
-"share_message" = "";
+"share_write_title" = "Cool，與友同樂";
 "share_to_wechat" = "分享至微信";
 "share_to_wechat_timeline" = "分享至朋友圈";
+"share_to_wechat_fav" = "分享到微信收藏";
 "share_to_save" = "儲存相片";
 "share_to_save_success" = "已儲存!";
 "share_to_save_failed" = "儲存出了点问题，请检查相册权限!";
 
 "action_cancel" = "關閉";
-
 
 
 "user_my_fav" = "喜色";
@@ -30,7 +29,7 @@
 "user_title" = "一般";
 
 "feedback_subject" = "「風雅」回報問題";
-"feedback_body" = "謹啟,\n  ";
+"feedback_body" = "  ";
 
-"share_title" = "这个应用很 cool";
-"share_msg" = "下载地址:http://amonxu.com";
+"share_title" = "風雅 - 用中國傳統色恣意書寫 作者是 Meng Xu";
+"share_msg" = "https://itunes.apple.com/cn/app/feng-ya/id1109719657";
