@@ -38,6 +38,8 @@
 		3FD1AAFD1E65211E0004977B /* CardCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1AAF81E65211E0004977B /* CardCollectionView.m */; };
 		3FD1AAFE1E65211E0004977B /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1AAFA1E65211E0004977B /* CardView.m */; };
 		3FD1AAFF1E65211E0004977B /* OverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1AAFC1E65211E0004977B /* OverView.m */; };
+		3FD1AB0B1E6945FB0004977B /* all_sqlite.db in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1AB0A1E6945FB0004977B /* all_sqlite.db */; };
+		3FD1AB0E1E69462E0004977B /* DBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1AB0D1E69462E0004977B /* DBUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,9 @@
 		3FD1AAFA1E65211E0004977B /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		3FD1AAFB1E65211E0004977B /* OverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverView.h; sourceTree = "<group>"; };
 		3FD1AAFC1E65211E0004977B /* OverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverView.m; sourceTree = "<group>"; };
+		3FD1AB0A1E6945FB0004977B /* all_sqlite.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = all_sqlite.db; sourceTree = "<group>"; };
+		3FD1AB0C1E69462E0004977B /* DBUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUtil.h; sourceTree = "<group>"; };
+		3FD1AB0D1E69462E0004977B /* DBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUtil.m; sourceTree = "<group>"; };
 		9A42146DFF2924F163F0BA39 /* Pods-FengYa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FengYa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FengYa/Pods-FengYa.debug.xcconfig"; sourceTree = "<group>"; };
 		E0BCD0E8B883081EEE703961 /* Pods-FengYa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FengYa.release.xcconfig"; path = "Pods/Target Support Files/Pods-FengYa/Pods-FengYa.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +142,7 @@
 		3F45262F1CCB615D00480473 /* FengYa */ = {
 			isa = PBXGroup;
 			children = (
+				3FD1AB0A1E6945FB0004977B /* all_sqlite.db */,
 				3FADCAD11E4495D0001C2B6B /* Utils.h */,
 				3FADCAD21E4495D0001C2B6B /* Utils.m */,
 				3FADCAC81E4495B1001C2B6B /* Fonts */,
@@ -161,6 +167,8 @@
 				3F95C00C1E5AF345006C246D /* UserViewController.m */,
 				3FADCAF41E458188001C2B6B /* InfoPlist.strings */,
 				3FADCAFA1E45831E001C2B6B /* Localizable.strings */,
+				3FD1AB0C1E69462E0004977B /* DBUtil.h */,
+				3FD1AB0D1E69462E0004977B /* DBUtil.m */,
 			);
 			path = FengYa;
 			sourceTree = "<group>";
@@ -308,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FD1AB0B1E6945FB0004977B /* all_sqlite.db in Resources */,
 				3F4526481CCB615D00480473 /* Info.plist in Resources */,
 				3FADCACD1E4495BE001C2B6B /* H-GungSeo.ttf in Resources */,
 				3F4526461CCB615D00480473 /* colors.json in Resources */,
@@ -386,6 +395,7 @@
 				3FADCA981E34A25F001C2B6B /* SelectFontController.m in Sources */,
 				3FD1AAFF1E65211E0004977B /* OverView.m in Sources */,
 				3F95C00D1E5AF345006C246D /* UserViewController.m in Sources */,
+				3FD1AB0E1E69462E0004977B /* DBUtil.m in Sources */,
 				3FA07B7F1CCBC4F700CB01EA /* WriteViewController.m in Sources */,
 				3F45264B1CCB615D00480473 /* ViewController.m in Sources */,
 			);

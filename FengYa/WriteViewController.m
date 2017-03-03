@@ -8,6 +8,8 @@
 
 #import "WriteViewController.h"
 #import "AppMacro.h"
+#import "DBUtil.h"
+#import "Utils.h"
 
 #import <YYText/YYText.h>
 #import <YYCategories/UIImage+YYAdd.h>
@@ -24,6 +26,7 @@
 
 @interface WriteViewController () <YYTextViewDelegate, YYTextKeyboardObserver>
 @property (nonatomic, assign) YYTextView *textView;
+@property (nonatomic, strong) NSString *poetryContent;
 
 @end
 
@@ -36,8 +39,24 @@ extern NSString *appFontName;
     return YES;
 }
 
+- (void)configData
+{
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        DBUtil *dbUtil = [DBUtil sharedInstance];
+        [dbUtil openDB];
+        NSMutableArray *resultList = [dbUtil selectPoetryByIndex:[Utils getRandomNumber:1 to:4452]];
+        if (resultList && resultList.count > 0) {
+            NSDictionary *dict = resultList[0];
+            _poetryContent = dict[@"poetry"];
+        }
+        NSLog(@"");
+//    });
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configData];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
         self.automaticallyAdjustsScrollViewInsets = NO;
@@ -45,7 +64,8 @@ extern NSString *appFontName;
     
     [self initToolBar];
     
-    NSString *textString = @"天净沙・秋思\n枯藤老树昏鸦，\n小桥流水人家，\n古道西风瘦马，\n夕阳西下，\n断肠人在天涯。";
+    NSString *textString = _poetryContent;
+//    @"天净沙・秋思\n枯藤老树昏鸦，\n小桥流水人家，\n古道西风瘦马，\n夕阳西下，\n断肠人在天涯。";
 //    textString = @"天";
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:textString];
     text.yy_font = FONT(appFontName, 20);
@@ -77,9 +97,9 @@ extern NSString *appFontName;
     
     [self initHeader];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [textView becomeFirstResponder];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [textView becomeFirstResponder];
+//    });
 
     [[YYTextKeyboardManager defaultManager] addObserver:self];
 }

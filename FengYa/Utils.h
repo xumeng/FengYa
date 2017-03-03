@@ -55,5 +55,10 @@
  */
 + (NSDictionary *)getAppConfig;
 
+/**
+ * 获取随机数, 包括from，不包括to
+ */
++ (int)getRandomNumber:(int)from to:(int)to;
+
 
 @end

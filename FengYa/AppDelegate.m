@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 #import "AppMacro.h"
 #import "Utils.h"
+#import "DBUtil.h"
 #import "ViewController.h"
+
 
 #import "WXApi.h"
 #import <SVProgressHUD/SVProgressHUD.h>
@@ -31,6 +33,8 @@ NSString *appFontName;
     [self config];
     
     [self load3Rd];
+    
+    [self loadData];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -97,6 +101,15 @@ NSString *appFontName;
 - (void)load3Rd
 {
     [WXApi registerApp:kAppKeyWeChat];
+}
+
+- (void)loadData
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        DBUtil *dbUtil = [DBUtil sharedInstance];
+        [dbUtil openDB];
+        int xxx = [dbUtil selectCount];
+    });
 }
 
 - (void)test

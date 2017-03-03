@@ -56,5 +56,10 @@
     return [self getUserDefaults:@"AppConfig"];
 }
 
++ (int)getRandomNumber:(int)from to:(int)to
+{
+    return (int)(from + (arc4random() % (to - from + 1)));
+}
+
 
 @end
