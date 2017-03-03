@@ -68,8 +68,9 @@ extern NSString *appFontName;
             return @"";
         }
     }
-    return trueTitle;
+    return [NSString stringWithFormat:@"%@・%@", trueTitle, _poetryDict[@"author"]];
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -162,7 +163,7 @@ extern NSString *appFontName;
     [speakButton setImage:speakImage forState:UIControlStateNormal];
     speakButton.tintColor = _color;
     [speakButton addTarget:self action:@selector(gotoSpeak) forControlEvents:UIControlEventTouchUpInside];
-    speakButton.left = SIZE_OF_SCREEN.width - buttonSize*2 - 15;
+    speakButton.left = SIZE_OF_SCREEN.width - buttonSize*1.75 - 15;
     speakButton.top = 0;
     speakButton.width = buttonSize;
     speakButton.height = buttonSize;
