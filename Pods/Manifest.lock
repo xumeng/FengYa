@@ -1,5 +1,10 @@
 PODS:
   - DCPathButton (2.1.4)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - FMDBHelpers (0.0.7):
+    - FMDB (~> 2.3)
   - SVProgressHUD (2.1.2)
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
@@ -8,16 +13,20 @@ PODS:
 
 DEPENDENCIES:
   - DCPathButton
+  - FMDB
+  - FMDBHelpers
   - SVProgressHUD
   - YYCategories
   - YYText (= 1.0.0)
 
 SPEC CHECKSUMS:
   DCPathButton: 99c8211ef3eafc3b438c917a4c7b4502fa77eee7
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  FMDBHelpers: c6bd06c59049d51d9072180f253b6ee53f695bf3
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYText: 3d061eb8bd1e644efa87e6d4cf5dd2663d76c887
 
-PODFILE CHECKSUM: 82441fe12c8841f5960a9060d7b10fad0b957c70
+PODFILE CHECKSUM: b3a47d787993bce853d506e54672d5660b063d50
 
 COCOAPODS: 1.1.1

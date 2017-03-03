@@ -4,6 +4,8 @@ target 'FengYa' do
     pod 'YYCategories'
     pod 'SVProgressHUD'
     pod 'DCPathButton'
+    pod 'FMDB'
+    pod 'FMDBHelpers'
 end
 
 # target :FengYaTests, :exclusive => true do
