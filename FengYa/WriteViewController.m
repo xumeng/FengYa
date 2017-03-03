@@ -11,6 +11,8 @@
 #import "DBUtil.h"
 #import "Utils.h"
 
+#import <AVFoundation/AVFoundation.h>
+
 #import <YYText/YYText.h>
 #import <YYCategories/UIImage+YYAdd.h>
 #import <YYCategories/UIView+YYAdd.h>
@@ -26,7 +28,9 @@
 
 @interface WriteViewController () <YYTextViewDelegate, YYTextKeyboardObserver>
 @property (nonatomic, assign) YYTextView *textView;
-@property (nonatomic, strong) NSString *poetryContent;
+@property (nonatomic, strong) NSDictionary *poetryDict;
+
+@property (nonatomic, strong) AVSpeechSynthesizer *synthesizer;
 
 @end
 
@@ -46,11 +50,25 @@ extern NSString *appFontName;
         [dbUtil openDB];
         NSMutableArray *resultList = [dbUtil selectPoetryByIndex:[Utils getRandomNumber:1 to:4452]];
         if (resultList && resultList.count > 0) {
-            NSDictionary *dict = resultList[0];
-            _poetryContent = dict[@"poetry"];
+            _poetryDict = resultList[0];
+            NSLog(@"");
         }
         NSLog(@"");
 //    });
+}
+
+//  如果内容中已经包含了title，则直接在框内显示内容，否则将标题加入内容中显示在框内
+- (NSString *)composeTitle
+{
+    NSString *trueTitle = _poetryDict[@"title"];
+    NSRange range = [_poetryDict[@"title"] rangeOfString:@"（"];
+    if (range.location != NSNotFound) {
+        trueTitle = [trueTitle substringToIndex:range.location];
+        if ([_poetryDict[@"poetry"] rangeOfString:trueTitle].location != NSNotFound) {
+            return @"";
+        }
+    }
+    return trueTitle;
 }
 
 - (void)viewDidLoad {
@@ -64,7 +82,9 @@ extern NSString *appFontName;
     
     [self initToolBar];
     
-    NSString *textString = _poetryContent;
+    NSString *textString = [NSString stringWithFormat:@"%@\n%@",
+                            [self composeTitle],
+                            _poetryDict[@"poetry"]];
 //    @"天净沙・秋思\n枯藤老树昏鸦，\n小桥流水人家，\n古道西风瘦马，\n夕阳西下，\n断肠人在天涯。";
 //    textString = @"天";
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:textString];
@@ -104,6 +124,12 @@ extern NSString *appFontName;
     [[YYTextKeyboardManager defaultManager] addObserver:self];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self stopSpeak];
+}
+
 - (void)initToolBar {
     CGFloat buttonSize = 60;
     UIButton *backButton = [[UIButton alloc] init];
@@ -129,6 +155,18 @@ extern NSString *appFontName;
     shareButton.width = buttonSize;
     shareButton.height = buttonSize;
     [self.view addSubview:shareButton];
+    
+    UIButton *speakButton = [[UIButton alloc] init];
+    UIImage *speakImage = [UIImage imageNamed:@"voice"];
+    speakImage = [speakImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [speakButton setImage:speakImage forState:UIControlStateNormal];
+    speakButton.tintColor = _color;
+    [speakButton addTarget:self action:@selector(gotoSpeak) forControlEvents:UIControlEventTouchUpInside];
+    speakButton.left = SIZE_OF_SCREEN.width - buttonSize*2 - 15;
+    speakButton.top = 0;
+    speakButton.width = buttonSize;
+    speakButton.height = buttonSize;
+    [self.view addSubview:speakButton];
 }
 
 - (void)initHeader
@@ -263,6 +301,25 @@ extern NSString *appFontName;
     return nil;
 }
 
+- (void)gotoSpeak
+{
+    if ([_synthesizer isSpeaking]) {
+        [self stopSpeak];
+    }
+    //  过滤掉句子中的阿拉伯数字
+    NSString *resultStr = _textView.text;
+    NSString * regExpStr = @"[0-9].";
+    NSString * replacement = @"";
+    NSRegularExpression *regExp = [[NSRegularExpression alloc] initWithPattern:regExpStr
+                                                                       options:NSRegularExpressionCaseInsensitive
+                                                                         error:nil];
+    resultStr = [regExp stringByReplacingMatchesInString:resultStr
+                                                 options:NSMatchingReportProgress
+                                                   range:NSMakeRange(0, resultStr.length)
+                                            withTemplate:replacement];
+    [self speak:resultStr];
+}
+
 - (void)gotoShare
 {
     [self.view endEditing:YES];
@@ -294,10 +351,30 @@ extern NSString *appFontName;
     [self presentViewController:av animated:YES completion:nil];
 }
 
-- (void)test
+- (void)speak:(NSString *)content
 {
-    
-    
+    NSString *voiceLang = @"zh-TW";
+    NSString *currentLang = CurrentLanguage;
+    if ([currentLang hasPrefix:@"zh-Hans"]) {
+        voiceLang = @"zh-CN";
+    } else if ([currentLang hasPrefix:@"zh-Hant"]) {
+        if ([currentLang hasSuffix:@"HK"]) {
+            voiceLang = @"zh-HK";
+        } else {
+            voiceLang = @"zh-TW";
+        }
+    }
+    // 创建嗓音，指定嗓音不存在则返回nil
+    AVSpeechSynthesisVoice *voice = [AVSpeechSynthesisVoice voiceWithLanguage:voiceLang];
+    // 朗读的内容
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:content];
+    utterance.voice = voice;
+    utterance.rate = 0.3;
+    [self.synthesizer speakUtterance:utterance];
+}
+- (void)stopSpeak
+{
+    [_synthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
 }
 
 - (void)shareToWeChat:(UIImage *)image scene:(int)scene
@@ -318,6 +395,18 @@ extern NSString *appFontName;
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+}
+
+#pragma mark - getter/setter
+//AVSpeechSynthesizer *synthesizer
+- (AVSpeechSynthesizer *)synthesizer
+{
+    if (!_synthesizer) {
+        // 创建语音合成器
+        _synthesizer = [[AVSpeechSynthesizer alloc] init];
+        
+    }
+    return _synthesizer;
 }
 
 
