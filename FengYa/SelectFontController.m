@@ -43,9 +43,9 @@ extern NSString *appFontName;
     
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
+//- (BOOL)prefersStatusBarHidden {
+//    return YES;
+//}
 
 - (void)configureData {
     [self loadFontsData];

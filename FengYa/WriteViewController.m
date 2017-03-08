@@ -68,7 +68,7 @@ extern NSString *appFontName;
             return @"";
         }
     }
-    return [NSString stringWithFormat:@"%@・%@", trueTitle, _poetryDict[@"author"]];
+    return trueTitle;
 }
 
 
