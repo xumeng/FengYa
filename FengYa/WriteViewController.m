@@ -178,16 +178,17 @@ extern NSString *appFontName;
     headerView.top = _textView.height - 20 - 50;
     headerView.width = self.view.width;
     
-    UILabel *colorLabel = [[UILabel alloc] init];
-    colorLabel.font = FONT(appFontName, 14);
-    colorLabel.numberOfLines = 0;
-    colorLabel.text = _colorString;
-    [_textView addSubview:colorLabel];
-    [colorLabel sizeToFit];
-    colorLabel.left = 10;
-    colorLabel.width = 20;
-    colorLabel.height = 100;
-    colorLabel.bottom = headerView.bottom;
+    UILabel *authorLabel = [[UILabel alloc] init];
+    authorLabel.font = FONT(appFontName, 14);
+    authorLabel.numberOfLines = 0;
+    authorLabel.text = _poetryDict[@"author"];
+    [_textView addSubview:authorLabel];
+    authorLabel.width = 20;
+    authorLabel.height = 100;
+    authorLabel.left = 10;
+    authorLabel.bottom = headerView.bottom;
+    
+    
     
     UIView *colorView = [[UIView alloc] init];
     colorView.backgroundColor = _color;
@@ -195,8 +196,20 @@ extern NSString *appFontName;
     [_textView addSubview:colorView];
     colorView.width = 30;
     colorView.height = 30;
-    colorView.centerY = colorLabel.centerY;
-    colorView.left = colorLabel.right + 10;
+    colorView.centerY = authorLabel.centerY;
+    colorView.left = authorLabel.right + 10;
+    
+    UILabel *colorLabel = [[UILabel alloc] init];
+    colorLabel.font = FONT(appFontName, 14);
+    colorLabel.numberOfLines = 0;
+    colorLabel.text = _colorString;
+    [_textView addSubview:colorLabel];
+    [colorLabel sizeToFit];
+    colorLabel.left = colorView.right + 10;
+    colorLabel.width = 20;
+    colorLabel.height = 100;
+    colorLabel.bottom = headerView.bottom;
+    
 }
 
 -(NSString *)reverseWordsInString:(NSString *)str
